@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Diseño con Flexbox</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: column; /* Cambiamos la dirección a columna en dispositivos pequeños */
+      border-radius: 24px;
+      background: #2B2B2B;
+      border-radius: 24px;
+    }
+
+    .imagen {
+      width: 100%; 
+      max-width: 100%;
+      height: auto;
+      border-radius: 24px;
+    }
+
+    .contenido {
+      color: #FFF;
+      font-family: Ubuntu;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150.536%; 
+      padding: 20px; /* Añadimos un poco de espacio alrededor del contenido */
+    }
+
+    .nombrelimite {
+      color: rgba(101, 88, 250, 0.92);
+      font-family: Ubuntu;
+      font-size: 24px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .nombre{
+      color: #FFD02A;
+      font-family: Ubuntu;
+      font-size: 24px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .lider{
+      color: rgba(255, 255, 255, 0.92);
+      font-family: Ubuntu;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .rol{
+      color: rgba(255, 255, 255, 0.92);
+      font-family: Ubuntu;
+      
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    @media only screen and (min-width: 600px) {
+      /* Estilos específicos para dispositivos con un ancho mínimo de 600px */
+      .contenedor {
+        flex-direction: row; /* Cambiamos la dirección a fila para dispositivos más grandes */
+      }
+
+      .contenido {
+        font-size: 18px; /* Ajustamos el tamaño del texto para dispositivos más grandes */
+      }
+
+      .nombrelimite, .nombre {
+        font-size: 52.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+  <img src="https://img.freepik.com/foto-gratis/disparo-vertical-persona-manos-fondo-puesta-sol_181624-41845.jpg" class="imagen">
+  <div class="contenido">
+    <h2>
+      <span class="nombrelimite">&lt;/</span>
+      <span class="nombre">Felipe Rueda</span>
+      <span class="nombrelimite">/&gt;</span>
+    </h2>
+    <div style="display: flex; align-items: center; ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="20" fill="#FFD02A"/>
+      </svg>
+      <p class="lider" style="margin-left: 10px;">Lider Scouting</p>
+    </div>
+    <h3 class = "rol"> 7mo Semestre Ing. Sistemas</h3>
+    <p class="contenido">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+    <div style="display: flex; align-items: center; ">
+      <!-- Insta -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:5px">
+        <path d="M12.0027 5.8467C8.59743 5.8467 5.85075 8.594 5.85075 12C5.85075 15.406 8.59743 18.1533 12.0027 18.1533C15.4079 18.1533 18.1546 15.406 18.1546 12C18.1546 8.594 15.4079 5.8467 12.0027 5.8467ZM12.0027 16.0004C9.80212 16.0004 8.00312 14.2064 8.00312 12C8.00312 9.7936 9.79677 7.99955 12.0027 7.99955C14.2086 7.99955 16.0022 9.7936 16.0022 12C16.0022 14.2064 14.2032 16.0004 12.0027 16.0004ZM19.8412 5.595C19.8412 6.39295 19.1987 7.03024 18.4062 7.03024C17.6085 7.03024 16.9713 6.38759 16.9713 5.595C16.9713 4.80241 17.6138 4.15977 18.4062 4.15977C19.1987 4.15977 19.8412 4.80241 19.8412 5.595ZM23.9157 7.05166C23.8247 5.12909 23.3856 3.42608 21.9775 2.02298C20.5747 0.619882 18.8721 0.180743 16.9499 0.0843468C14.9689 -0.0281156 9.03112 -0.0281156 7.05008 0.0843468C5.1333 0.175388 3.43068 0.614526 2.02253 2.01763C0.614389 3.42073 0.180703 5.12373 0.0843279 7.0463C-0.0281093 9.02778 -0.0281093 14.9669 0.0843279 16.9483C0.175349 18.8709 0.614389 20.5739 2.02253 21.977C3.43068 23.3801 5.12794 23.8193 7.05008 23.9157C9.03112 24.0281 14.9689 24.0281 16.9499 23.9157C18.8721 23.8246 20.5747 23.3855 21.9775 21.977C23.3803 20.5739 23.8193 18.8709 23.9157 16.9483C24.0281 14.9669 24.0281 9.03314 23.9157 7.05166ZM21.3564 19.0744C20.9388 20.1241 20.1303 20.9327 19.0755 21.3558C17.496 21.9824 13.7481 21.8378 12.0027 21.8378C10.2572 21.8378 6.50396 21.977 4.92984 21.3558C3.88042 20.9381 3.07195 20.1294 2.64897 19.0744C2.02253 17.4946 2.16709 13.7458 2.16709 12C2.16709 10.2542 2.02789 6.50006 2.64897 4.92558C3.06659 3.87593 3.87507 3.06728 4.92984 2.6442C6.50931 2.01763 10.2572 2.16222 12.0027 2.16222C13.7481 2.16222 17.5014 2.02298 19.0755 2.6442C20.1249 3.06192 20.9334 3.87058 21.3564 4.92558C21.9828 6.50541 21.8383 10.2542 21.8383 12C21.8383 13.7458 21.9828 17.4999 21.3564 19.0744Z" fill="#FFD02A"/>
+      </svg>
+      <!-- Github -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none" style="margin:5px">
+        <path d="M8.10059 19.0137C8.10059 19.1113 7.98828 19.1895 7.84668 19.1895C7.68555 19.2041 7.57324 19.126 7.57324 19.0137C7.57324 18.916 7.68555 18.8379 7.82715 18.8379C7.97363 18.8232 8.10059 18.9014 8.10059 19.0137ZM6.58203 18.7939C6.54785 18.8916 6.64551 19.0039 6.79199 19.0332C6.91895 19.082 7.06543 19.0332 7.09473 18.9355C7.12402 18.8379 7.03125 18.7256 6.88477 18.6816C6.75781 18.6475 6.61621 18.6963 6.58203 18.7939ZM8.74023 18.7109C8.59863 18.7451 8.50098 18.8379 8.51562 18.9502C8.53027 19.0479 8.65723 19.1113 8.80371 19.0771C8.94531 19.043 9.04297 18.9502 9.02832 18.8525C9.01367 18.7598 8.88184 18.6963 8.74023 18.7109ZM11.9531 0C5.18066 0 0 5.1416 0 11.9141C0 17.3291 3.4082 21.9629 8.27637 23.5938C8.90137 23.7061 9.12109 23.3203 9.12109 23.0029C9.12109 22.7002 9.10645 21.0303 9.10645 20.0049C9.10645 20.0049 5.68848 20.7373 4.9707 18.5498C4.9707 18.5498 4.41406 17.1289 3.61328 16.7627C3.61328 16.7627 2.49512 15.9961 3.69141 16.0107C3.69141 16.0107 4.90723 16.1084 5.57617 17.2705C6.64551 19.1553 8.4375 18.6133 9.13574 18.291C9.24805 17.5098 9.56543 16.9678 9.91699 16.6455C7.1875 16.3428 4.43359 15.9473 4.43359 11.25C4.43359 9.90723 4.80469 9.2334 5.58594 8.37402C5.45898 8.05664 5.04395 6.74805 5.71289 5.05859C6.7334 4.74121 9.08203 6.37695 9.08203 6.37695C10.0586 6.10352 11.1084 5.96191 12.1484 5.96191C13.1885 5.96191 14.2383 6.10352 15.2148 6.37695C15.2148 6.37695 17.5635 4.73633 18.584 5.05859C19.2529 6.75293 18.8379 8.05664 18.7109 8.37402C19.4922 9.23828 19.9707 9.91211 19.9707 11.25C19.9707 15.9619 17.0947 16.3379 14.3652 16.6455C14.8145 17.0312 15.1953 17.7637 15.1953 18.9111C15.1953 20.5566 15.1807 22.5928 15.1807 22.9932C15.1807 23.3105 15.4053 23.6963 16.0254 23.584C20.9082 21.9629 24.2188 17.3291 24.2188 11.9141C24.2188 5.1416 18.7256 0 11.9531 0ZM4.74609 16.8408C4.68262 16.8896 4.69727 17.002 4.78027 17.0947C4.8584 17.1729 4.9707 17.207 5.03418 17.1436C5.09766 17.0947 5.08301 16.9824 5 16.8896C4.92188 16.8115 4.80957 16.7773 4.74609 16.8408ZM4.21875 16.4453C4.18457 16.5088 4.2334 16.5869 4.33105 16.6357C4.40918 16.6846 4.50684 16.6699 4.54102 16.6016C4.5752 16.5381 4.52637 16.46 4.42871 16.4111C4.33105 16.3818 4.25293 16.3965 4.21875 16.4453ZM5.80078 18.1836C5.72266 18.2471 5.75195 18.3936 5.86426 18.4863C5.97656 18.5986 6.11816 18.6133 6.18164 18.5352C6.24512 18.4717 6.21582 18.3252 6.11816 18.2324C6.01074 18.1201 5.86426 18.1055 5.80078 18.1836ZM5.24414 17.4658C5.16602 17.5146 5.16602 17.6416 5.24414 17.7539C5.32227 17.8662 5.4541 17.915 5.51758 17.8662C5.5957 17.8027 5.5957 17.6758 5.51758 17.5635C5.44922 17.4512 5.32227 17.4023 5.24414 17.4658Z" fill="#FFD02A"/>
+      </svg>
+      <!-- Facebook -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" style="margin:5px">
+        <path d="M24.4375 12.1094C24.4375 5.41992 19.0176 0 12.3281 0C5.63867 0 0.21875 5.41992 0.21875 12.1094C0.21875 18.1533 4.64697 23.1631 10.436 24.0723V15.6099H7.35986V12.1094H10.436V9.44141C10.436 6.40674 12.2427 4.73047 15.0098 4.73047C16.335 4.73047 17.7207 4.9668 17.7207 4.9668V7.94531H16.1934C14.6895 7.94531 14.2202 8.87891 14.2202 9.83643V12.1094H17.5786L17.0415 15.6099H14.2202V24.0723C20.0093 23.1631 24.4375 18.1533 24.4375 12.1094Z" fill="#FFD02A"/>
+        </svg>
+    </div>
+  </div>
+</div> 
+
+</body>
+</html>
