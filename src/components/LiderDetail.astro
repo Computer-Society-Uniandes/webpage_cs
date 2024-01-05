@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de Diseño con Flexbox</title>
+  
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
     }
 
-    .contenedor {
+    main {
       display: flex;
       flex-direction: column; /* Cambiamos la dirección a columna en dispositivos pequeños */
       border-radius: 24px;
@@ -46,7 +46,7 @@
     .nombre{
       color: #FFD02A;
       font-family: Ubuntu;
-      font-size: 24px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
+      font-size: 40px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
       font-style: normal;
       font-weight: 700;
       line-height: normal;
@@ -54,7 +54,7 @@
     .lider{
       color: rgba(255, 255, 255, 0.92);
       font-family: Ubuntu;
-      font-size: 32px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -70,7 +70,7 @@
 
     @media only screen and (min-width: 600px) {
       /* Estilos específicos para dispositivos con un ancho mínimo de 600px */
-      .contenedor {
+      main {
         flex-direction: row; /* Cambiamos la dirección a fila para dispositivos más grandes */
       }
 
@@ -81,17 +81,21 @@
       .nombrelimite, .nombre {
         font-size: 52.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
       }
+
+      .lider {
+        font-size: 32.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="contenedor">
+<main>
   <img src="https://img.freepik.com/foto-gratis/disparo-vertical-persona-manos-fondo-puesta-sol_181624-41845.jpg" class="imagen">
   <div class="contenido">
     <h2>
       <span class="nombrelimite">&lt;/</span>
-      <span class="nombre">Felipe Rueda</span>
+      <span class="nombre">Felipe Rueda 🚀</span>
       <span class="nombrelimite">/&gt;</span>
     </h2>
     <div style="display: flex; align-items: center; ">
@@ -114,10 +118,10 @@
       <!-- Facebook -->
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" style="margin:5px">
         <path d="M24.4375 12.1094C24.4375 5.41992 19.0176 0 12.3281 0C5.63867 0 0.21875 5.41992 0.21875 12.1094C0.21875 18.1533 4.64697 23.1631 10.436 24.0723V15.6099H7.35986V12.1094H10.436V9.44141C10.436 6.40674 12.2427 4.73047 15.0098 4.73047C16.335 4.73047 17.7207 4.9668 17.7207 4.9668V7.94531H16.1934C14.6895 7.94531 14.2202 8.87891 14.2202 9.83643V12.1094H17.5786L17.0415 15.6099H14.2202V24.0723C20.0093 23.1631 24.4375 18.1533 24.4375 12.1094Z" fill="#FFD02A"/>
-        </svg>
+      </svg>
     </div>
   </div>
-</div> 
+<main> 
 
 </body>
 </html>
