@@ -2,9 +2,13 @@
 interface Props {
 	img: string;
 	name : string;
+    team : string;
+    insta: string;
+    github: string;
+    facebook: string;
 }
 
-const {img, name} = Astro.props;
+const {img, name, team, insta, github, facebook} = Astro.props;
 ---
 <head>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
@@ -19,12 +23,14 @@ const {img, name} = Astro.props;
             <h1 class = "member-name">
                <span class = "yellow"> &lt;/ </span>  <span class = "light"> {name}</span> <span class = "yellow">&gt;</span>
             </h1>
-            <div class = "teamRED"> </div>
-            <div class = "teamGREEN"> </div>
-            <div class = "teamPURPLE"> </div>
-            <i class="gg-instagram"></i>
-            <i class="fa fa-github" style="color: #ffcb3d; font-size:24px; position: absolute; bottom: 20px; left: 90px;" ></i>
-            <i class="gg-facebook"></i>
+            <div class = "teamImg"> </div>
+            <h1 class = "teams">
+                <span class = "light"> {team}</span>
+            </h1>
+
+            <a href = {insta} class="gg-instagram" target="_blank"></a>
+            <a href={github} class="fa fa-github" style="color: #ffcb3d; font-size:24px; position: absolute; bottom: 20px; left: 90px;" target="_blank"></a>
+            <a href={facebook} class="gg-facebook" target="_blank"></a>
         </div>
     </div>
     
@@ -68,7 +74,22 @@ const {img, name} = Astro.props;
         font-size: 20px;
 
     }
-    
+    .teamImg{
+        width: 20px;
+        height: 20px;
+        background-color: #FF4747;
+        border-radius: 50%;
+        position: absolute;
+        top: 100px;
+        left: 60px;
+    }
+    .teams{
+        position: absolute;
+        top: 85px;
+        left: 90px;
+        font-size: 15px;
+
+    }
     .yellow{
         color: #FFC100;
     }
@@ -81,6 +102,7 @@ const {img, name} = Astro.props;
         bottom: 20px;
         left:50px;
         color:  #FFC100;
+        cursor: pointer;
     }
 
     .gg-facebook {
@@ -88,32 +110,8 @@ const {img, name} = Astro.props;
         bottom: 20px;
         left:120px;
         color:  #FFC100;
+        cursor: pointer;
     }
-    .teamRED{
-        width: 20px;
-        height: 20px;
-        background-color: #FF4747;
-        border-radius: 50%;
-        position: absolute;
-        top: 100px;
-        left: 60px;
-    }
-    .teamGREEN{
-        width: 20px;
-        height: 20px;
-        background-color: #00F1A9;
-        border-radius: 50%;
-        position: absolute;
-        top: 100px;
-        left: 90px;
-    }
-    .teamPURPLE{
-        width: 20px;
-        height: 20px;
-        background-color: #8819F8;
-        border-radius: 50%;
-        position: absolute;
-        top: 100px;
-        left: 120px;
-    }
+    
+    
 </style>
