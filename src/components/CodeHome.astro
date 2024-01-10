@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+<Layout title = "código de la HomePage" >
+    <!-- {asignarValores()} -->
+    <style>
+
+        /* Estilo opcional para hacer la animación más suave */
+        .letter-box {
+            transition: opacity 1s ease-in-out, color 0.5s ease-in-out;
+        }
+
+        /* Estilo para los símbolos que no están dentro del alfabeto */
+
+        .letter-box.parentesis {
+            color: #E7526D; /* Cambia el color a rojo o cualquier otro color deseado */
+        }
+
+        .letter-box.linea {
+            color: #909090; /* Cambia el color a rojo o cualquier otro color deseado */
+        }
+
+        .letter-box.simbolos {
+            color: #FFD02A; /* Cambia el color a rojo o cualquier otro color deseado */
+        }
+
+        .letter-box.alfabeto {
+            color: rgb(255, 255, 255); /* Cambia el color a rojo o cualquier otro color deseado */
+        }
+        .container { 
+            display: flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            }
+    
+            .letter-box {
+            animation: aparecerDesdeArriba 2s ease-out;
+            display: flex;
+            width: 25px;
+            height: 27px;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 2px solid #464646;
+            background: linear-gradient(to bottom, #000000, #1d1d1d);
+            color: var(--White, #FFF);
+            text-align: center;
+            font-family: Roboto Mono;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 27.878px; /* 29.04% */
+            }
+    
+            .letter-box:hover {
+            transform: scale(1.1); /* Escala el círculo al 110% cuando se pasa el mouse sobre él */
+            }
+
+            @media only screen and (min-width: 600px) {
+
+                .letter-box {
+                width: 60px;
+                height: 80px;
+                font-size: 60px;
+                
+                }
+            }
+
+    </style>
+    <div class="container" >
+        <div class="letter-box" id="elemento1" class="elemento">-</div>
+        <div class="letter-box" id="elemento2">I</div>
+        <div class="letter-box" id="elemento3">S</div>
+        <div class="letter-box" id="elemento4">-</div>
+        <div class="letter-box" id="elemento5">-</div>
+        <div class="letter-box" id="elemento6">-</div>
+        <div class="letter-box" id="elemento7">-</div>
+        <div class="letter-box" id="elemento8">-</div>
+        <div class="letter-box" id="elemento9">-</div>
+        <div class="letter-box" id="elemento10">-</div>
+        <div class="letter-box" id="elemento11">-</div>
+        <div class="letter-box" id="elemento12">-</div>
+      </div>
+      <div class="container">
+        <div class="letter-box" id="elemento13">-</div>
+        <div class="letter-box" id="elemento14">-</div>
+        <div class="letter-box" id="elemento15">-</div>
+        <div class="letter-box" id="elemento16">C</div>
+        <div class="letter-box" id="elemento17">O</div>
+        <div class="letter-box" id="elemento18">M</div>
+        <div class="letter-box" id="elemento19">U</div>
+        <div class="letter-box" id="elemento20">N</div>
+        <div class="letter-box" id="elemento21">I</div>
+        <div class="letter-box" id="elemento22">T</div>
+        <div class="letter-box" id="elemento23">Y</div>
+        <div class="letter-box" id="elemento24">-</div>
+      </div>
+      <div class="container">
+        <div class="letter-box" id="elemento25">-</div>
+        <div class="letter-box" id="elemento26">-</div>
+        <div class="letter-box" id="elemento27">-</div>
+        <div class="letter-box" id="elemento28">-</div>
+        <div class="letter-box" id="elemento29">-</div>
+        <div class="letter-box" id="elemento30">-</div>
+        <div class="letter-box" id="elemento31">-</div>
+        <div class="letter-box" id="elemento32">-</div>
+        <div class="letter-box" id="elemento33">-</div>
+        <div class="letter-box" id="elemento34">-</div>
+        <div class="letter-box" id="elemento35">-</div>
+        <div class="letter-box" id="elemento36">-</div> 
+      </div>
+      <script>
+        const listaStrings1 = [
+        "<","I","S","~","&","-","}","-","-","-","-","-",
+        "-","-","-", "C","O","M","U","N","I","T","Y","-",
+        "-","-","-","~","-","{","-","-","/",">","-","-",
+        ];
+
+        const listaStrings2 = [
+        "-","N","O","S","-","-","-","-","-","-","-","-",
+        "-","-","G","U","S","T","A","-","L","A","-","~","~",
+        "-","-","/","M","O","J","A","R","R","A","/","-"
+        ];
+
+        const listaStrings3 = [
+        "-","R","A","M","A","-","-","-","-","<","<","-",
+        "-","-","-","-","-","D","E","-","&","-","-","-",
+        "-","~","-","-","-","-","{","I","E","E","E","}"
+        ];
+
+        const listaStrings4 = [
+        "-","R","E","S","P","E","T","A","M","O","S","-",
+        "-","{","L","A","-","-","-","-","-","~","-","-",
+        "!","C","H","A","N","G","U","A","?","","{","-"
+        ];
+
+        const listaStrings5 = [
+        "<","A","P","A","S","I","O","N","A","D","O","S",
+        "-","&","P","O","R","-","L","A","-","~","-","-",
+        "/","T","E","C","N","O","L","O","G","Í","A",">",
+        ];
+
+        const listaStrings6 = [
+        "-","S","O","M","O","S","-","~","-","-","-","-",
+        "-","-","-","","-","{","B","I","E","N","}","-",
+        "-","&","-","-","P","R","O","S","-","-","~","-",
+        ];
+
+        const listaStrings7 = [
+        "-","-","-","-","-","-","-","-","-","-","-","-",
+        "-","-","-","-","-","-","-","-","-","-","-","-",
+        "-","-","-","-","-","-","-","-","-","-","-","-",
+        ];
+
+    // Variable para mantener un índice que cambia cada 3 segundos
+    var currentIndex = 0;
+
+    function intercambiarListas() {
+        currentIndex = (currentIndex % 6) + 1;
+        var listaActual = eval('listaStrings' + currentIndex);
+
+        for (var i = 1; i <= 36; i++) {
+            var elementoId = "elemento" + i;
+            var elemento = document.getElementById(elementoId);
+
+            if (elemento) {
+                elemento.innerHTML = listaActual[i - 1];
+
+                if (/[{}()<>/]/.test(listaActual[i - 1])) {
+                    elemento.classList.add('parentesis');
+                } else {
+                    elemento.classList.remove('parentesis');
+                }
+                if (/[-]/.test(listaActual[i - 1])) {
+                    elemento.classList.add('linea');
+                } else {
+                    elemento.classList.remove('linea');
+                }
+                if (/[?'¡1234567890~'&!]/.test(listaActual[i - 1])) {
+                    elemento.classList.add('simbolos');
+                } else {
+                    elemento.classList.remove('simbolos');
+                }
+
+                
+            }
+        }
+    }
+
+    setInterval(intercambiarListas, 3000);
+
+    // Llama a la función intercambiarListas cada 3 segundos
+
+
+    // Inicialmente, establece la primera lista
+    intercambiarListas();
+        </script>
+      
+</Layout>
