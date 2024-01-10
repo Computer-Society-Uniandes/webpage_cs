@@ -1,7 +1,7 @@
 ---
 import LocationIcon from '@/icons/Location.astro'
 interface Props {
-    date: string;
+    date: Date;
     type: string;
     event_title: string;
     location: string;
@@ -10,170 +10,249 @@ interface Props {
 	speaker_image: string;
 	event_body: string;
     event_image: string;
+    eventId: string;
 }
 
 const { date, type, event_title, location, speaker_name, speaker_rol, speaker_image, event_body, event_image } = Astro.props;
+
+function getMonth(date: Date) {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    return monthNames[date.getMonth()];
+}
+function getDate(date: Date) {
+    return date.getDate().toString().padStart(2, '0');
+}
+function formatEventBody(body: string) {
+    return body.replace(/<p>/g, '<p class="event-body">');
+}
+
+function getHour(date: Date){
+    let hour = date.getHours()
+    if (hour < 12){
+        return `${hour}:${date.getMinutes()} AM`
+    } else {
+        return `${hour}:${date.getMinutes()} PM`
+    }
+}
+
+const event_month = getMonth(date);
+const event_day = date.getDay();
+const event_hour = getHour(date);
+
 ---
-
-<div id="Card-Container" style=`background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 84%), url(${event_image});`>
-    <div id="Description">
-        Lorem ipsum dolor sit amet consectetur. Semper duis non viverra aliquam morbi. 
-        Et a eget diam eu iaculis a faucibus. A sit lectus quis vulputate laoreet.
-    </div>
-    <div id="Info-Container">        
-        <div id="Left-Container">
-            <div id="Date-Container">
-                <p id="Day">
-                    AUG<br/>18
-                </p>
-                <p id="Hour">
-                    7 pm
-                </p>
-            </div>
-            <div id="Type-Container">
-                <div style="width: 27.49px; height: 27.49px; background: #00F1A9; border-radius: 9999px"></div>
-                <div style="width: 27.49px; height: 27.49px; background: #FF4747; border-radius: 9999px"></div>
-                <div style="width: 27.49px; height: 27.49px; background: #8819F8; border-radius: 9999px"></div>
-            </div>
+<!-- HTML -->
+<card-event class="Card-Container" data-event={event_title}  id={event_title}>
+    <img class="Card-Img" src={event_image} alt=`${event_title}-Image`>
+    <div class="Card-Body" id=`${event_title}-Card-Body` >        
+        <div class="Description" id=`${event_title}-Description`>
+            {event_body}
         </div>
-        <div style="width: 217.60px; height: 0px; transform: rotate(90deg); transform-origin: 0 0; border: 1.15px white solid"></div>
-        <div id="Right-Container">
-            <div>
-                <span style="color: rgba(100.88, 87.93, 249.87, 0.92); font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word">
-                    &lcub;
-                </span>
-                <span style="color: #FFD02A; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word"> 
-                </span>
-                <span style="color: white; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word">
-                    Taller Docker
-                </span>
-                <span style="color: #FFD02A; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word"> 
-                </span>
-                <span style="color: rgba(100.88, 87.93, 249.87, 0.92); font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word">
-                    &rcub;<br/>
-                </span>
-            </div>
-            <div id="Location-Container">
-                <div style="width: 21.47px; height: 28.63px;">
-                    <LocationIcon />
+        <div class="Info-Container">        
+            <div class="Left-Container">
+                <div class="Date-Container">
+                    <p class="Day">
+                        {event_month} <br/> {event_day}
+                    </p>
+                    <p class="Hour">
+                        {event_hour}
+                    </p>
                 </div>
-                <div style="width: 95.06px; height: 25.20px; color: white; font-size: 22.91px; font-family: Ubuntu; font-weight: 400; word-wrap: break-word"> 
-                    Location<br/>
+                <div class="Type-Container">
+                    {   type.toLocaleUpperCase() === 'WEB' &&
+                        (<div style="width: 27.49px; height: 27.49px; background: #00F1A9; border-radius: 9999px"></div>)
+                    }
+                    {   type.toLocaleUpperCase() === 'IA' &&
+                        (<div style="width: 27.49px; height: 27.49px; background: #FF4747; border-radius: 9999px"></div>)
+                    }
+                    {   type.toLocaleUpperCase() === 'SCOUTING' &&
+                        (<div style="width: 27.49px; height: 27.49px; background: #8819F8; border-radius: 9999px"></div>)
+                    }                
                 </div>
             </div>
-            <div id="Speaker-Container">
-                <img style="width: 59.55px; height: 59.55px; border-radius: 9999px" src="https://via.placeholder.com/60x60" />
-                <div id="Speaker-Info-Container">
-                    <div style="text-align: center">
-                        <span style="color: rgba(100.88, 87.93, 249.87, 0.92); font-size: 16px; font-family: Ubuntu; font-weight: 500; word-wrap: break-word">
-                            &lt;
-                        </span>
-                        <span style="color: white; font-size: 16px; font-family: Ubuntu; font-weight: 500; word-wrap: break-word">
-                            Cristobal Arroyo
-                        </span>
-                        <span style="color: rgba(100.88, 87.93, 249.87, 0.92); font-size: 16px; font-family: Ubuntu; font-weight: 500; word-wrap: break-word">
-                            /&gt;
-                        </span>
-                    </div>
-                    <div style="text-align: center; color: white; font-size: 12px; font-family: Ubuntu; font-weight: 300; word-wrap: break-word">
-                        CS Chair
-                    </div>
-                </div>
-            </div>
-        </div>
         
-    </div>
-    <div id="Button-Container">
-        <div id="Button">
-            Registrate
+            <div class="Right-Container">
+                <div>
+                    <span class="Text-Blue">
+                        &lcub;
+                    </span>
+                    <span style="color: #FFD02A; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word"> 
+                    </span>
+                    <span style="color: white; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word">
+                        {event_title}
+                    </span>
+                    <span style="color: #FFD02A; font-size: 31px; font-family: Ubuntu; font-weight: 700; word-wrap: break-word"> 
+                    </span>
+                    <span class="Text-Blue">
+                        &rcub;<br/>
+                    </span>
+                </div>
+                <div class="Location-Container">
+                    <div style="width: 21.47px; height: 28.63px;">
+                        <LocationIcon />
+                    </div>
+                    <div style="width: 95.06px; height: 25.20px; color: white; font-size: 22.91px; font-family: Ubuntu; font-weight: 400; word-wrap: break-word"> 
+                        {location}
+                    </div>
+                </div>
+                <div class="Speaker-Container">
+                    <img style="width: 59.55px; height: 59.55px; border-radius: 9999px" src= `${speaker_image}` />
+                    <div class="Speaker-Info-Container">
+                        <div style="text-align: center">
+                            <span class="Text-Blue-Speaker">
+                                &lt;
+                            </span>
+                            <span style="color: white; font-size: 16px; font-family: Ubuntu; font-weight: 500; word-wrap: break-word">
+                                {speaker_name}
+                            </span>
+                            <span class="Text-Blue-Speaker">
+                                /&gt;
+                            </span>
+                        </div>
+                        <div style="text-align: center; color: white; font-size: 12px; font-family: Ubuntu; font-weight: 300; word-wrap: break-word">
+                            {speaker_rol}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="Button-Container">
+            <div class="Button">
+                Registrate
+            </div>
         </div>
     </div>
-</div>
+</card-event>
 
-<style lang="scss" define:vars={{image: event_image}}>
-    $Event_image: url(var(--image));
-    #Card-Container {
-        width: 100%; 
-        height: 100%; 
-        padding-top: 80px; 
-        padding-bottom: 46px; 
-        padding-left: 40px; 
-        padding-right: 40.25px; 
+<!-- Script -->
+<script >
+    class CardEvent extends HTMLElement {
+        constructor (){
+            super();
+            const event = this.dataset.event
+            function resizeText() {
+                console.log(`${event}-Description`)
+                const description = document.getElementById(`${event}-Description`);
+                const cardWidth = document.getElementById(`${event}-Card-Body`).offsetWidth;
+                const fontSize = (cardWidth / 100) * 1; // adjust the multiplier to your liking
+                
+                description.style.fontSize = `${fontSize}px`;
+                console.log(fontSize)
+                
+            }
+            // Call the resizeText function when the page loads
+            window.onload = resizeText;
+
+            // Call the resizeText function when the window is resized
+            window.onresize = resizeText;
+        }
+        
+    }
+
+    customElements.define('card-event', CardEvent);
+</script>
+
+<!-- Style -->
+<style lang="scss" >
+    .Card-Container { 
+        background-color: #23262d;
+        position: relative;
+        overflow: hidden;
+        display: flex; 
         border-radius: 71px; 
-        overflow: hidden; 
-        flex-direction: column; 
-        justify-content: flex-end; 
-        align-items: center; 
         gap: 12.18px; 
-        display: inline-flex; 
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center center; 
-        #Description {
-            width: 386px; 
-            height: 344px; 
+        .Card-Img {
+            width: 100%; 
+            object-fit: fill;
+            border-radius: 71px; 
+        }
+        .Card-Body {
+            height: 100%;
+            position: absolute;  
+            border-radius: 71px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: space-around;
+            gap: 12.18px; 
+        }
+        .Description {
             text-align: center; 
             color: white; 
-            font-size: 30px; 
+            font-size: 5vw; 
             font-family: Ubuntu; 
             font-weight: 700; 
             word-wrap: break-word;
             visibility: hidden;
         }
-        #Info-Container {
-            width: 423.75px; 
-            height: 250.82px; 
-            position: relative; 
+        .Info-Container {
+            width: 100%;
+            padding: 1rem;
             flex-direction: row; 
-            justify-content: flex-start; 
-            align-items: flex-start; 
+            flex-wrap: wrap;            
+            row-gap: 3rem;
+            justify-content: space-evenly; 
+            align-items: center; 
             display: flex;        
-            #Left-Container {
+            .Left-Container {
+                padding: 1rem;
+                flex-direction: column; 
+                justify-content: flex-start; 
+                align-items: center; 
+                gap: 19.47px; 
+                display: inline-flex;
+                border-right: 2px solid white;
+                .Date-Container {
                     flex-direction: column; 
                     justify-content: flex-start; 
-                    align-items: flex-start; 
-                    gap: 19.47px; 
-                    display: inline-flex;
-                    #Date-Container {
-                        flex-direction: column; 
-                        justify-content: flex-start; 
-                        align-items: center; 
-                        display: flex;
-                
-                        p {
-                            margin-block-start: 0;
-                            margin-block-end: 0;
-                            text-align: center; 
-                            color: white; 
-                            font-size: 34.36px; 
-                            font-family: Ubuntu;
-                            word-wrap: break-word; 
-                            #Day {
-                                width: 103.08px; 
-                                height: 79.02px; 
-                                font-weight: 700; 
-                            }
-                            #Hour {
-                                width: 100.78px; 
-                                height: 37.79px;                 
-                                font-weight: 500;
-                            }
+                    align-items: center; 
+                    display: flex;
+            
+                    p {
+                        margin-block-start: 0;
+                        margin-block-end: 0;
+                        text-align: center; 
+                        color: white; 
+                        font-size: 34.36px; 
+                        font-family: Ubuntu;
+                        word-wrap: break-word; 
+                        .Day {
+                            width: 103.08px; 
+                            height: 79.02px; 
+                            font-weight: 700; 
+                        }
+                        .Hour {
+                            width: 100.78px; 
+                            height: 37.79px;                 
+                            font-weight: 500;
                         }
                     }
-                    #Type-Container {
-                        justify-content: flex-start; 
-                        align-items: flex-start; 
-                        gap: 12.60px; 
-                        display: inline-flex;
-                    }
                 }
-            #Right-Container {
+                .Type-Container {
+                    justify-content: flex-start; 
+                    align-items: flex-start; 
+                    gap: 12.60px; 
+                    display: inline-flex;
+                }
+            }
+            .Right-Container {
+                padding: 1rem;
                 flex-direction: column; 
                 justify-content: flex-start; 
                 align-items: flex-start; 
                 gap: 17.18px; 
                 display: inline-flex;
-                #Location-Container {
+                .Text-Blue {
+                    color: rgba(100.88, 87.93, 249.87, 0.92); 
+                    font-size: 31px; 
+                    font-family: Ubuntu; 
+                    font-weight: 700; 
+                    word-wrap: break-word;
+                }
+                .Location-Container {
                     width: 100%; 
                     height: 28.63px; 
                     justify-content: center; 
@@ -181,12 +260,19 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
                     gap: 3.72px; 
                     display: inline-flex;
                 }
-                #Speaker-Container {
+                .Text-Blue-Speaker {
+                    color: rgba(100.88, 87.93, 249.87, 0.92); 
+                    font-size: 16px; 
+                    font-family: Ubuntu; 
+                    font-weight: 500; 
+                    word-wrap: break-word;
+                }
+                .Speaker-Container {
                     justify-content: center; 
                     align-items: center; 
                     gap: 9.18px; 
                     display: inline-flex;
-                    #Speaker-Info-Container {
+                    .Speaker-Info-Container {
                         width: 150.03px; 
                         align-self: stretch; 
                         padding-top: 2.40px; 
@@ -202,7 +288,8 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
                 }
             }
         }
-        #Button-Container {
+        .Button-Container {
+            padding: 1rem;
             height: 58px; 
             padding-left: 40px; 
             padding-right: 40px; 
@@ -215,7 +302,7 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
             align-items: center; 
             gap: 10px; 
             display: inline-flex;
-            #Button {
+            .Button {
                 text-align: center; 
                 color: #FFD02A; 
                 font-size: 30px; 
@@ -225,7 +312,7 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
                 word-wrap: break-word
             }
         }
-        #Button-Container:is(:hover, :focus-within) {
+        .Button-Container:is(:hover, :focus-within) {
             display: inline-flex;
             height: 58px;
             padding: 30px 40px;
@@ -236,7 +323,7 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
             border-radius: 17px;
             background: #FFD02A;
     
-            #Button{
+            .Button{
                 color: #070707;
                 text-align: center;
                 font-family: Work Sans;
@@ -247,9 +334,11 @@ const { date, type, event_title, location, speaker_name, speaker_rol, speaker_im
             }
         }
     }
-    #Card-Container:is(:hover, :focus-within) {
-        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), $Event_image !important;
-        #Description {
+    .Card-Container:is(:hover, :focus-within) {
+        .Card-Body {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 84%);
+        }
+        .Description {
             visibility: visible;
         }
     }
