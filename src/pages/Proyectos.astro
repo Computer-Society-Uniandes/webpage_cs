@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title = "Proyectos en Curso">
+    <style>
+        @keyframes aparecerDesdeArriba {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+		}
+        
+        main {
+        animation: aparecerDesdeArriba 3s ease-out;
+        flex-direction: column; /* Cambiamos la dirección a columna en dispositivos pequeños */
+        border-radius: 24px;
+        background: #2B2B2B;
+        border-bottom: 20px;
+        }
+
+        .parentesis{
+            color: var(--Accent-1, #E7526D);
+            font-family: Ubuntu;
+            font-size: 73.671px;
+            font-style: normal;
+            font-weight: 700;
+            
+            
+        }
+
+        .proyectos{
+            color: var(--White, #FFD110);
+            font-family: Ubuntu;
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 41.935px;
+            letter-spacing: 0.737px;
+        }
+
+        .enCurso{
+            color: var(--White, #FFF);
+            font-family: Ubuntu;
+            font-size: 70px;
+            font-style: normal;
+            font-weight: 700;
+        }
+        .barraAmarilla{
+            display: flex;
+            justify-content: space-between; /* Espacio uniforme entre los elementos hijos */
+            align-items: center;
+            border-radius: 21.629px;
+            background: #FFD02A;
+            width: 70%;
+            height: 150px;
+            flex-shrink: 0;
+            margin: auto;
+            padding: 0 20px;
+            
+        }
+
+        .circulo {
+            width: 130px;
+            height: 130px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .circulo:hover {
+        transform: scale(1.1); /* Escala el círculo al 110% cuando se pasa el mouse sobre él */
+        }
+
+        .circulo img {
+            
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+        }
+        
+        @media only screen and (max-width: 900px) {
+
+            .parentesis, .proyectos, .enCurso {
+                font-size: 40px; 
+            }
+
+            .barraAmarilla{
+            height: auto;
+            margin: auto;
+            flex-direction: column
+            
+            }
+
+            .circulo {
+                width: 130px;
+                height: 130px;
+                background-color: white;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                margin: 20px;   
+                transition: transform 0.3s ease;
+            }
+
+        }
+
+    </style>
+    <main>
+        <h2 style="text-align: center; padding: 40px;">
+            <span class="parentesis">&#123;</span>
+            <span class="proyectos">Proyectos </span>
+            <span class="enCurso">en curso</span>
+            <span class="parentesis"> &#125;</span>
+        </h2>
+        <div class="barraAmarilla">
+            <div class="circulo"><img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto 1"></div>
+            <div class="circulo"><img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto 2"></div>
+            <div class="circulo"><img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto 3"></div>
+            <div class="circulo"><img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto 4"></div>
+            <div class="circulo"><img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto 5"></div>
+        </div>
+    </main>
+    
+
+</Layout>
+ 
