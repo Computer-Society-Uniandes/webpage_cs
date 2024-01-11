@@ -1,0 +1,51 @@
+---
+import CSLogo from "../../public/CSLogo.astro";
+import GitHub from "../../public/GitHub.astro";
+import Instagram from "../../public/Instagram.astro";
+import LinkedIn from "../../public/LinkedIn.astro";
+---
+
+<!-- footer with tailwind -->
+<div class="w-full start-0 mx-auto">
+    <footer class="footer bg-gray-dark text-slate-50 font-normal">
+        <div class="container mx-auto py-7 flex justify-center space-x-14 items-center">
+            <!-- tres secciones, una con el logo de CS desde ../../public, uno con un textbox para el newsletter y uno con el texto siguenos y los iconos de las redes sociales -->
+            <div class="flex flex-col w-1/3 items-start">
+                <div class="w-10 h-10">
+                    <CSLogo />
+                </div>
+                <h3 class="text-sm font-light">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae soluta labore accusantium unde quasi dolore
+                </h3>
+            </div>
+            <div class="flex flex-col items-start">
+                <h3 class="text-xl pb-3">Enterate de todas las noticias:</h3>
+                <div class="flex flex-row items-center">
+                    <input
+                        type="text"
+                        class="w-64 h-10 p-1 rounded-xl border-2 border-neutral-600 bg-neutral-800"
+                        placeholder="Ingresa tu correo electronico"
+                    />
+                    <button
+                        class="transition w-10 h-10 rounded-xl border-2 border-neutral-600 bg-neutral-800 text-neutral-600 font-extrabold hover:bg-neutral-500">
+                        >
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col items-start">
+                <h3 class="text-xl">¡Siguenos!</h3>
+                <div class="flex flex-row space-x-4 pt-3">
+                    <a href="https://www.instagram.com/csuniandes/" target="_blank" class="transition w-10 h-10 hover:scale-110">
+                        <Instagram />
+                    </a>
+                    <a href="https://www.linkedin.com/company/rama-ieee-universida-de-los-andes/" target="_blank" class="transition w-10 h-10 hover:scale-110">
+                        <LinkedIn />
+                    </a>
+                    <a href="https://github.com/Computer-Society-Uniandes" target="_blank" class="transition w-10 h-10 hover:scale-110">
+                        <GitHub />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
