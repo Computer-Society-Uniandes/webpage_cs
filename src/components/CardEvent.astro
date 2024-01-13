@@ -33,7 +33,7 @@ function getHour(date: Date){
     if (hour < 12){
         return `${hour}:${date.getMinutes()} AM`
     } else {
-        return `${hour}:${date.getMinutes()} PM`
+        return `${hour-12}:${date.getMinutes()} PM`
     }
 }
 
