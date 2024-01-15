@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="AboutUs">
+    <section class="grid grid-cols-1 justify-items-center p-6 h-screen align-middle">
+        <img class="w-80 self-end" src="/logo_wb.svg" alt="" srcset="" />
+        <header class="flex flex-col items-center gap-5 justify-center">
+            <h1 class=" text-6xl font-ubuntu font-bold text-white">
+                <span class="text-accent">{"<"}</span>Sobre <strong
+                    class="text-primary">Nosotros</strong
+                ><span class="text-accent">{">"}</span>
+            </h1>
+            <p class="text-xl text-white font-source ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
+                quibusdam laboriosam animi ullam! Ut delectus cum adipisci
+                aliquam. Fugit officia a, sunt hic illum recusandae aut
+                accusamus quo quas nam?
+            </p>
+        </header>
+        <footer class="text-white flex flex-col font-ubuntu text-2xl py-5 place-self-start sm:flex-row sm:gap-x-10 sm:place-self-center">
+            <div class="my-3">
+                <h3 class="font-bold text-primary text-5xl">+80</h3>
+                <p>Miembros</p>
+            </div>
+            <div class="h-[2px] w-[calc(100vw-2.5rem)] bg-accent sm:w-[2px] sm:h-[100px]"></div>
+            <div class="my-3">
+                <h3 class="font-bold text-primary text-5xl">+10</h3>
+                <p>Proyectos</p>
+            </div>
+            <div class="h-[2px] w-[calc(100vw-2.5rem)] bg-accent sm:w-[2px] sm:h-[100px]"></div>
+            <div class="my-3">
+                <h3 class="font-bold text-primary text-5xl">+5</h3>
+                <p>Eventos</p>
+            </div>
+        </footer>
+    </section>
+</Layout>
