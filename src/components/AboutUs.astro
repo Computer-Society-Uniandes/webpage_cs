@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="AboutUs">
-    <section class="grid grid-cols-1 justify-items-center p-6 h-screen align-middle">
-        <img class="w-80 self-end" src="/logo_wb.svg" alt="" srcset="" />
-        <header class="flex flex-col items-center gap-5 justify-center">
+    <section class="grid grid-cols-1 justify-items-center p-6 h-screen align-middle md:grid-cols-2 md:grid-rows-3 md:h-auto max-w-6xl m-auto">
+        <img class="w-80 self-center sm:w-96 md:row-start-1 md:row-end-3" src="/logo_wb.svg" alt="" srcset="" />
+        <header class="flex flex-col items-center gap-5 justify-center md:row-start-1 md:row-end-3 lg:items-start">
             <h1 class=" text-6xl font-ubuntu font-bold text-white">
                 <span class="text-accent">{"<"}</span>Sobre <strong
                     class="text-primary">Nosotros</strong
@@ -18,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
                 accusamus quo quas nam?
             </p>
         </header>
-        <footer class="text-white flex flex-col font-ubuntu text-2xl py-5 place-self-start sm:flex-row sm:gap-x-10 sm:place-self-center">
+        <footer class="text-white flex flex-col font-ubuntu text-2xl py-5 place-self-start sm:flex-row sm:gap-x-10 sm:place-self-center md:col-span-full md:gap-x-36 ">
             <div class="my-3">
                 <h3 class="font-bold text-primary text-5xl">+80</h3>
                 <p>Miembros</p>
