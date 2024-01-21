@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+<Layout title = "Proyecto">
+    <style>
+        .circulo {
+            display: flex;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .circulo:hover {
+        transform: scale(1.2); 
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+        }
+        .titulo{
+            text-align: center; 
+            
+        }
+
+        @media only screen and (max-width: 900px) {
+            .circulo {              
+                float: left; /* Coloca la imagen a la izquierda */
+                max-width: 40%;
+                
+            }
+
+            .titulo {              
+                float: right; /* Coloca la imagen a la izquierda */
+                margin: 0px;
+                margin-top: 10%;
+                margin-right: 4%;
+                font-size: 24px;
+                max-width: 40%;
+            }
+            img {
+            max-width: 100%;
+            }
+        }
+    </style>
+        
+
+   <div>
+        <div class="circulo">
+            <img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto">
+        </div>
+        <h3 class="titulo">Taller Python</h3>
+   </div>
+    
+</Layout>
