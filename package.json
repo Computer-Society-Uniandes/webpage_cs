@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "webpage_cs",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "astro": "^3.6.4",
-    "bootstrap": "^5.3.2"
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.5"
   }
 }
