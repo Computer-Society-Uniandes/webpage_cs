@@ -63,8 +63,45 @@ import Proyecto from "../components/Proyecto.astro";
             
             
         }
+        .parrafo{
+            color: var(--White, #FFF);
+            font-family: Ubuntu;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin: 0 10%;
+            
+        }
 
-        
+        .historico{
+            width: 390px;
+            height: 533px;
+            flex-shrink: 0;
+            border-radius: 9px;
+            background: var(--Accent-1, #E7526D);
+            margin: 5%;
+        }
+        .imgproyectos{
+            width: 390px;
+            height: 363px;
+            flex-shrink: 0;
+        }
+        .titproyectos{
+            color: var(--White, #000000);
+            font-family: Ubuntu;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin: 0 5%;
+
+        }
+        svg {
+            position: relative;
+            bottom: -8%;
+            right: -85%;
+        }
         
         @media only screen and (max-width: 900px) {
 
@@ -79,6 +116,10 @@ import Proyecto from "../components/Proyecto.astro";
             
             }
 
+            .parrafo{
+                font-size: 20px;
+                margin: 0 5%;
+            }
             
 
         }
@@ -100,6 +141,26 @@ import Proyecto from "../components/Proyecto.astro";
             <Proyecto/>
             
         </div>
+
+        <h5 style="text-align: rigth; padding: 40px; margin-top: 5%">
+            <span class="parentesis">&#123;</span>
+            <span class="proyectos">Proyectos </span>
+            <span class="enCurso">anteriores</span>
+            <span class="parentesis"> &#125;</span>
+        </h5>
+
+        <p class="parrafo">
+            Lorem ipsum dolor sit amet consectetur. Justo quis nunc bibendum cursus scelerisque a quis varius urna. Cum sed eget amet nisl risus eget faucibus. Ac pellentesque sed lobortis elementum sit semper massa tristique augue. Venenatis molestie congue viverra ut odio vel mauris tellus.
+        </p>
+        <div class="historico">
+            <img alt="Historico de proyectos" class="imgproyectos" src="https://forbescentroamerica.com/_next/image?url=https%3A%2F%2Fcdn.forbescentroamerica.com%2F2022%2F01%2Fpexels-alex-knight-2599244.jpg%3Fv%3D1280720&w=3840&q=75" >
+            <h4 class="titproyectos">VR training app for a manufacturing company</h4>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="24" fill="#2D2D2D"/>
+                <path d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
+            </svg>
+        </div>        
     </main>
     
 
