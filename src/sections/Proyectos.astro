@@ -1,0 +1,146 @@
+---
+import Proyecto from "@/components/Proyecto.astro";
+---
+    
+<style>
+    @keyframes aparecerDesdeArriba {
+	    from {
+    		opacity: 0;
+	    }
+	    to {
+    		opacity: 1;
+	    }
+	}
+    
+    .main {
+        animation: aparecerDesdeArriba 3s ease-out;
+        flex-direction: column; 
+        border-radius: 24px;
+        background: #2B2B2B;
+        border-bottom: 20px;
+        padding: 1%;
+    }
+    .tittle{
+        text-align: center; 
+        padding: 40px;
+    }
+    .parentesis{
+        color: var(--Accent-1, #E7526D);
+        font-family: Ubuntu;
+        font-size: 73.671px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    .proyectos{
+        color: var(--White, #FFD110);
+        font-family: Ubuntu;
+        font-size: 70px;
+        font-weight: 700;
+        line-height: 41.935px;
+        letter-spacing: 0.737px;
+        min-height: 150px;
+    }
+    .enCurso{
+        color: var(--White, #FFF);
+        font-family: Ubuntu;
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    .barraAmarilla{
+        justify-content: space-between; 
+        align-items: center;
+        border-radius: 21.629px;
+        background: #FFD02A;
+        width: 70%;
+        display: flex;
+        margin: 2% auto;
+    }
+    .parrafo{
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0 15%;
+        color: #F4F4F4;
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155.556%;         
+    }
+    .proyectoDetails{
+        color: #FFD02A;
+        font-family: "Work Sans";
+        font-size: 56.34px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 131.25%; 
+        padding-left: 15%;
+    }
+    .linea{
+        margin: 0 auto; /* Centra el div horizontalmente */
+        width: 80%;
+        height: 3px;
+        flex-shrink: 0;
+        background: rgb(154, 154, 154);
+        margin-top: 4%;
+    }     
+    @media only screen and (max-width: 900px) {
+        .parentesis, .proyectos, .enCurso {
+            font-size: 40px; 
+        }
+        .barraAmarilla{
+        height: auto;
+        margin: auto;
+        flex-direction: column
+        
+        }
+        .parrafo{
+            font-size: 20px;
+            margin: 0 5%;
+        }
+        
+    }
+</style>
+<div class="main">
+    <h2 class="tittle">
+        <span class="parentesis">&#123;</span>
+        <span class="proyectos">Proyectos </span>
+        <span class="enCurso">en curso</span>
+        <span class="parentesis"> &#125;</span>
+    </h2>
+    <script type="module">
+        import { onCleanup, afterEffect } from "svelte";
+        // Función para mostrar u ocultar las divs
+        const mostrarOcultarDivs = () => {
+            const Detail = document.querySelector('.Detail');
+            if (Detail.style.display === 'none' || Detail.style.display === '') {
+                Detail.style.display = 'block';
+            } else {
+                Detail.style.display = 'none';
+            }
+        };
+        // Limpiar eventos cuando la página se desmonta
+        onCleanup(() => {
+            // Limpiar cualquier suscripción o evento necesario
+        });
+    </script>
+    <div class="barraAmarilla">
+        <Proyecto onclick="mostrarOcultarDivs()"/>
+        <Proyecto onclick="mostrarOcultarDivs()"/>
+        <Proyecto onclick="mostrarOcultarDivs()"/>
+        <Proyecto onclick="mostrarOcultarDivs()"/>
+        <Proyecto onclick="mostrarOcultarDivs()"/>
+        
+    </div>
+    <div class="Detail">
+        <div class="linea"></div>
+        <h1 class="proyectoDetails" > Proyecto  Web</h1>
+        <p class="parrafo">
+            Lorem ipsum dolor sit amet consectetur. Justo quis nunc bibendum cursus scelerisque a quis varius urna. Cum sed eget amet nisl risus eget faucibus. Ac pellentesque sed lobortis elementum sit semper massa tristique augue. Venenatis molestie congue viverra ut odio vel mauris tellus.
+        </p>
+    </div>
+    
+  
+</div>
+ 
