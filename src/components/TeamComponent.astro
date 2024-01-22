@@ -31,8 +31,8 @@ const{img, teamName} = Astro.props;
         position: relative;
         overflow: hidden;
         display: flex;
-        width: 150px; 
-        height: 150px; 
+        width: 70px; 
+        height: 70px; 
         justify-content: center;
         align-items: center;
         color:black;
@@ -51,6 +51,74 @@ const{img, teamName} = Astro.props;
         display: flex;
         flex-direction: column;
         font-family: system-ui, sans-serif;
+        font-size: 50%;
         text-align: center;
+    }
+    @media only screen and (min-width: 600px) {
+        .team:hover .team-body{
+        right: 0;
+        }
+        .team{
+            border-radius: 50%;
+            background-color: #D9D9D9;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            width: 170px; 
+            height: 170px; 
+            justify-content: center;
+            align-items: center;
+            color:black;
+        }
+        .team-body{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        right:-100%;
+        background: #00000081;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        font-size: 90%;
+        text-align: center;
+        }
+
+   }
+    @media only screen and (min-width: 768px) {
+        .team:hover .team-body{
+        right: 0;
+        }
+        .team{
+            border-radius: 50%;
+            background-color: #D9D9D9;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            width: 150px; 
+            height: 150px; 
+            justify-content: center;
+            align-items: center;
+            color:black;
+        }
+        .team-body{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        right:-100%;
+        background: #00000081;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        font-size: 90%;
+        text-align: center;
+        }
     }
 </style>

@@ -45,12 +45,13 @@ import Team from '../components/TeamComponent.astro';
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 30vh;
-      margin: 50;
+      height: 10%;
+      margin:5%;
       
     }
     .title{
         text-align: center;   
+        font-size: 120%;
     }
     .pink{
         color: #D65C6F;
@@ -60,4 +61,16 @@ import Team from '../components/TeamComponent.astro';
         color: #D9D9D9;
     }
     
+    @media only screen and (min-width: 600px) {
+        .title{
+        text-align: center;   
+        font-size: 150%;
+        }
+    }
+    @media only screen and (min-width: 600px) {
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+    }
 </style>
