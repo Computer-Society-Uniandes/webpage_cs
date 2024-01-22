@@ -1,0 +1,79 @@
+---
+const {
+    cardPrimaryColor = "#FFD110",
+    cardAccentColorProp,
+    image = "https://i.redd.it/7nhj3htbow701.jpg",
+    title = "VR training app for a manufacturing company",
+    link = "#past-projects",
+    tags = ["3D", "AR/VR/MR", "2D"]
+} = Astro.props
+let cardAccentColor = cardAccentColorProp || cardPrimaryColor
+
+---
+<style define:vars={{cardPrimaryColor, cardAccentColor}}>
+    .prev-project-card{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: var(--cardPrimaryColor);
+        width: 30rem;
+
+        font-family: Ubuntu,serif;
+    }
+
+    .prev-project-card-tags{
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+    .prev-project-card-tags > .badge{
+        background: var(--cardAccentColor);
+        color: #3F3F3F;
+        padding: 0.5rem;
+        font-size: 1em;
+        font-weight: 500;
+        border-radius: 0.25rem;
+    }
+    .prev-project-card > .card-body {
+        padding: 1.5rem;
+    }
+    .prev-project-card > .card-body > .card-title {
+        font-family: Ubuntu,serif;
+        font-size: 1.5em;
+        font-weight: 500;
+        color: #000;
+        padding: 0;
+        margin: 0;
+    }
+    .prev-project-card-link {
+        margin-top: 1.5rem;
+        display: block;
+    }
+
+</style>
+
+<div class="card prev-project-card m-2">
+    <div class="prev-project-card-tags">
+        {tags.map(tag => <span class="badge">{tag}</span>)}
+    </div>
+    <img
+        class="card-img-top prev-project-card-image"
+        src={image}
+        alt={title}
+    />
+    <div class="card-body">
+        <h5 class="card-title">{title}</h5>
+        <a href={link} class="prev-project-card-link">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 143725905">
+                    <circle id="Ellipse 309" cx="24" cy="24" r="24" fill="#2D2D2D"/>
+                    <path id="Arrow 2" d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
+                </g>
+            </svg>
+        </a>
+    </div>
+</div>
