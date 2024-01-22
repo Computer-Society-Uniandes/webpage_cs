@@ -19,6 +19,9 @@
       ],
       "@images": [
         "src/images"
+      ],
+      "@styles":[
+        "src/styles/*"
       ]
     },
     "jsx": "react-jsx",
