@@ -6,8 +6,9 @@ export default {
             colors: {
                 "andes-yellow": "#FFD02A",
                 "gray-dark": "#2D2D2D",
-                pink: "#E7526D",
-                black: "#000000",
+                "gray-darker": "#242424",
+                "pink": "#E7526D",
+                "black": "#000000",
             },
         },
     },
