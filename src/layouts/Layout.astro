@@ -13,8 +13,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+		<meta name="viewport" content="width=device-width" />		
 		<link rel="icon"  type="image/svg+xml" href="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -24,12 +23,324 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-    body {
-      font-family: Ubuntu;
+    html {
+      font-family: Ubuntu, Work Sans, system-ui, sans-serif; 
       background-color: #3d3d3d;
     }
 
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-Light.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-Light.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Light.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 300;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-LightItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-LightItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-LightItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-LightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-LightItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 300;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-Regular.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 400;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-Italic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Italic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-Italic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 400;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-Italic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 500;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-MediumItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-MediumItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-MediumItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-MediumItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-MediumItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 500;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-Bold.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 600;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Ubuntu";
+		src: url('/fonts/Ubuntu/Ubuntu-BoldItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/Ubuntu/Ubuntu-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/Ubuntu/Ubuntu-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-BoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/Ubuntu/Ubuntu-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/Ubuntu/Ubuntu-BoldItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 600;
+    	font-style: italic;
+    	font-display: swap;
+    }
 
-
-
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Thin.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Thin.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Thin.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Thin.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Thin.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 100;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-ThinItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-ThinItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-ThinItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ThinItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ThinItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-ThinItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 100;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-ExtraLight.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLight.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLight.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLight.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 200;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-ExtraLightItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-ExtraLightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLightItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLightItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-ExtraLightItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 200;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Light.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Light.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Light.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 300;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-LightItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-LightItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-LightItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-LightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-LightItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 300;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Regular.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 400;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Italic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Italic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Italic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 400;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Medium.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 500;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-MediumItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-MediumItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-MediumItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-MediumItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-MediumItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 500;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-SemiBold.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-SemiBold.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-SemiBold.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-SemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-SemiBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 600;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-SemiBoldItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-SemiBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-SemiBoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-SemiBoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-SemiBoldItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 600;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-Bold.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 700;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-BoldItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-BoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-BoldItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 700;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-ExtraBold.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 800;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+		src: url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-ExtraBoldItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 800;
+    	font-style: italic;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+        src: url("/fonts/WorkSans/WorkSans-Black.woff2") format("woff2");
+		src: url('/fonts/WorkSans/WorkSans-Black.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-Black.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Black.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-Black.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 800;
+    	font-style: normal;
+    	font-display: swap;
+    }
+	@font-face {
+        font-family: "Work Sans";
+        src: url("/fonts/WorkSans/WorkSans-BlackItalic.woff2") format("woff2");
+		src: url('/fonts/WorkSans/WorkSans-BlackItalic.eot'); /* IE9 Compat Modes */
+  		src: url('/fonts/WorkSans/WorkSans-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		     url('/fonts/WorkSans/WorkSans-BlackItalic.woff2') format('woff2'), /* Super Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-BlackItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  		     url('/fonts/WorkSans/WorkSans-BlackItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  		     url('/fonts/WorkSans/WorkSans-BlackItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+        font-weight: 800;
+    	font-style: italic;
+    	font-display: swap;
+    }	
 </style>
