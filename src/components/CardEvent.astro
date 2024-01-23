@@ -88,13 +88,13 @@ const event_hour = getHour(date);
                 <div class="Speaker-Container">
                     <img class="Speaker-Img w-11 h-11 rounded-full place-self-start mt-2" src=`${speaker_image}` alt=`${speaker_name} ${speaker_rol} Image` />
                     <div class="Speaker-Info-Container">
-                        <div class="flex">
+                        <span>
                             <span class="Text-Blue-Speaker">&lt;/</span>
                             <span class="Speaker-Name-Text">
                                 {speaker_name}
                             </span>
                             <span class="Text-Blue-Speaker">&gt;</span>
-                        </div>
+                        </span>
                         <div class="Speaker-Rol-Text text-sm">
                             {speaker_rol}
                         </div>
@@ -170,8 +170,8 @@ const event_hour = getHour(date);
                 }
             }
             .Right-Container {
-                flex-direction: column;
                 display: inline-flex;
+                flex-direction: column;
                 padding-left: 1rem;
                 .Text-Blue {
                     color: rgba(100.88, 87.93, 249.87, 0.92);
@@ -198,10 +198,11 @@ const event_hour = getHour(date);
                     word-wrap: break-word;
                 }
                 .Speaker-Container {
+                    display: inline-flex;
+                    flex-direction: row;
                     justify-content: flex-start;
                     align-items: center;
                     gap: 9.18px;
-                    display: inline-flex;
                     .Speaker-Img {;
                         object-fit: cover;
                     }
