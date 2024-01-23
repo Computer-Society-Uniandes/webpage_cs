@@ -1,23 +1,29 @@
 ---
+
 const {
     cardPrimaryColor = "#FFD110",
-    cardAccentColorProp,
+    cardAccentColor,
     image = "https://i.redd.it/7nhj3htbow701.jpg",
     title = "VR training app for a manufacturing company",
     link = "#past-projects",
     tags = ["3D", "AR/VR/MR", "2D"]
 } = Astro.props
-let cardAccentColor = cardAccentColorProp || cardPrimaryColor
+
+let cardAccentColorFinal = cardAccentColor || cardPrimaryColor
 
 ---
-<style define:vars={{cardPrimaryColor, cardAccentColor}}>
+<style define:vars={{cardPrimaryColor, cardAccentColorFinal}}>
+    @media only screen and (min-width: 600px) {
+        
+    }
+    
     .prev-project-card{
         display: flex;
         flex-direction: column;
         position: relative;
         background: var(--cardPrimaryColor);
-        width: 30rem;
-
+        min-width: 25rem;
+        border-radius: 0.5rem;
         font-family: Ubuntu,serif;
     }
 
@@ -31,7 +37,7 @@ let cardAccentColor = cardAccentColorProp || cardPrimaryColor
         gap: 0.5rem;
     }
     .prev-project-card-tags > .badge{
-        background: var(--cardAccentColor);
+        background: var(--cardAccentColorFinal);
         color: #3F3F3F;
         padding: 0.5rem;
         font-size: 1em;
@@ -52,6 +58,11 @@ let cardAccentColor = cardAccentColorProp || cardPrimaryColor
     .prev-project-card-link {
         margin-top: 1.5rem;
         display: block;
+    }
+    .prev-project-card-image{
+        height: 100%;
+        object-fit: contain;
+        border-radius: 0.5rem;
     }
 
 </style>
