@@ -1,5 +1,5 @@
 ---
-import LocationIcon from '@/icons/Location.astro'
+import LocationIcon from "@/icons/Location.astro";
 interface Props {
     date: Date;
     type: string;
@@ -7,8 +7,8 @@ interface Props {
     location: string;
     speaker_name: string;
     speaker_rol: string;
-	speaker_image: string;
-	event_body: string;
+    speaker_image: string;
+    event_body: string;
     event_image: string;
     eventId: string;
 }
@@ -16,270 +16,214 @@ interface Props {
 const { date, type, event_title, location, speaker_name, speaker_rol, speaker_image, event_body, event_image } = Astro.props;
 
 function getMonth(date: Date) {
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-    ];
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return monthNames[date.getMonth()];
 }
 function getDate(date: Date) {
-    return date.getDate().toString().padStart(2, '0');
+    return date.getDate().toString().padStart(2, "0");
 }
 function formatEventBody(body: string) {
     return body.replace(/<p>/g, '<p class="event-body">');
 }
 
-function getHour(date: Date){
-    let hour = date.getHours()
-    if (hour < 12){
-        return `${hour}:${date.getMinutes()} AM`
+function getHour(date: Date) {
+    let hour = date.getHours();
+    if (hour < 12) {
+        return `${hour}:${date.getMinutes()} AM`;
     } else {
-        return `${hour-12}:${date.getMinutes()} PM`
+        return `${hour - 12}:${date.getMinutes()} PM`;
     }
 }
 
 const event_month = getMonth(date);
 const event_day = date.getDay();
 const event_hour = getHour(date);
-
 ---
-<div class="Card-Container">
-    <img class="Card-Img" src={event_image} alt=`${event_title}-Image`>
-    <div class="Card-Body" >
-        <div class="Description" >
-            {event_body}
+
+<div class="Card-Container justify-end rounded-3xl relative group">
+    <img class="Card-Img" src={event_image} alt=`${event_title}-Image` />
+    <div class="Card-Body w-full">
+        <div class="Description transition-all group-hover:opacity-100 group-focus:opacity-100 opacity-0 absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p class="text-lg text-white">
+                {event_body}
+            </p>
         </div>
-        <div class="Info-Container">        
-            <div class="Left-Container">
-                <div class="Date-Container">
+        <div class="Info-Container p-3 transition-all group-hover:opacity-0 group-focus:opacity-0 opacity-100 ">
+            <div class="Left-Container w-full lg:w-1/3 px-2 pb-2">
+                <div class="Date-Container text-lg font-extrabold">
                     <p class="Day">
-                        {event_month} <br/> {event_day}
+                        {event_month}
+                        <br />
+                        {event_day}
                     </p>
                     <p class="Hour">
                         {event_hour}
                     </p>
                 </div>
                 <div class="Type-Container">
-                    {   type.toLocaleUpperCase() === 'WEB' &&
-                        (<div style="width: 27.49px; height: 27.49px; background: #00F1A9; border-radius: 9999px"></div>)
-                    }
-                    {   type.toLocaleUpperCase() === 'IA' &&
-                        (<div style="width: 27.49px; height: 27.49px; background: #FF4747; border-radius: 9999px"></div>)
-                    }
-                    {   type.toLocaleUpperCase() === 'SCOUTING' &&
-                        (<div style="width: 27.49px; height: 27.49px; background: #8819F8; border-radius: 9999px"></div>)
-                    }                
+                    {type.toLocaleUpperCase() === "WEB" && <div style="width: 27.49px; height: 27.49px; background: #00F1A9; border-radius: 9999px" />}
+                    {type.toLocaleUpperCase() === "IA" && <div style="width: 27.49px; height: 27.49px; background: #FF4747; border-radius: 9999px" />}
+                    {type.toLocaleUpperCase() === "SCOUTING" && <div style="width: 27.49px; height: 27.49px; background: #8819F8; border-radius: 9999px" />}
                 </div>
             </div>
-        
-            <div class="Right-Container">
+
+            <div class="Right-Container pt-3 w-full lg:w-2/3 border-white border-t-2 lg:border-t-0 lg:border-s-2">
                 <div>
-                    <span class="Text-Blue">
-                        &lcub;
-                    </span>
-                    <span style="color: #FFD02A; font-size: 31px; font-weight: 700; word-wrap: break-word"> 
-                    </span>
-                    <span class="Text-Tittle">
+                    <span class="Text-Blue">&lcub;</span>
+                    <span class="Text-Tittle w-full text-pretty">
                         {event_title}
                     </span>
-                    <span style="color: #FFD02A; font-size: 31px; font-weight: 700; word-wrap: break-word"> 
-                    </span>
                     <span class="Text-Blue">
-                        &rcub;<br/>
+                        &rcub;<br />
                     </span>
                 </div>
-                <div class="Location-Container">
+                <div class="Location-Container flex flex-row items-center">
                     <div style="width: 21.47px; height: 28.63px;">
                         <LocationIcon />
                     </div>
-                    <div class="Text-Location"> 
+                    <div class="Text-Location text-sm">
                         {location}
                     </div>
                 </div>
                 <div class="Speaker-Container">
-                    <img class="Speaker-Img" src= `${speaker_image}` alt=`${speaker_name} ${speaker_rol} Image` />
+                    <img class="Speaker-Img w-11 h-11 rounded-full place-self-start mt-2" src=`${speaker_image}` alt=`${speaker_name} ${speaker_rol} Image` />
                     <div class="Speaker-Info-Container">
-                        <div>
-                            <span class="Text-Blue-Speaker">
-                                &lt;/
-                            </span>
-                            <span style="Speaker-Name-Text">
+                        <div class="flex">
+                            <span class="Text-Blue-Speaker">&lt;/</span>
+                            <span class="Speaker-Name-Text">
                                 {speaker_name}
                             </span>
-                            <span class="Text-Blue-Speaker">
-                                &gt;
-                            </span>
+                            <span class="Text-Blue-Speaker">&gt;</span>
                         </div>
-                        <div class="Speaker-Rol-Name">
+                        <div class="Speaker-Rol-Text text-sm">
                             {speaker_rol}
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
-        <div class="Button-Container">
-            <div class="Button">
-                Registrate
-            </div>
+        <div class="Button-Container px-4 py-2 rounded-xl w-auto mb-3">
+            <div class="Button">Registrate</div>
         </div>
     </div>
 </div>
 
-<style lang="scss" >    
-    
-    .Card-Container { 
+<style lang="scss">
+    .Card-Container {
         background-color: #23262d;
         position: relative;
         overflow: hidden;
-        display: flex; 
-        border-radius: 71px; 
-        gap: 12.18px; 
+        display: flex;
+        gap: 12.18px;
+        width: 100%;
+        height: 100%;
         .Card-Img {
-            width: 100%; 
-            object-fit: fill;
-            border-radius: 71px; 
+            width: 100%;
+            object-fit: cover;
         }
         .Card-Body {
             height: 100%;
-            position: absolute;  
-            border-radius: 71px; 
-            overflow: hidden; 
-            display: flex; 
+            position: absolute;
+            overflow: hidden;
+            display: flex;
             flex-direction: column;
-            align-items: center; 
-            justify-content: space-around;
-            gap: 12.18px; 
+            align-items: center;
+            justify-content: flex-end;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
         }
         .Description {
             padding: 10px;
-            text-align: center; 
-            color: white; 
-            font-size: 3rem;
-            font-weight: 700; 
+            text-align: center;
+            color: white;
             word-wrap: break-word;
-            visibility: hidden;
         }
         .Info-Container {
             width: 100%;
-            padding: 1rem;
-            flex-direction: row; 
-            flex-wrap: wrap;            
-            row-gap: 3rem;
-            justify-content: space-evenly; 
-            align-items: center; 
-            display: flex;        
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            display: flex;
             .Left-Container {
-                padding: 1rem;
-                flex-direction: column; 
-                justify-content: flex-start; 
-                align-items: center; 
-                gap: 19.47px; 
-                display: inline-flex;
-                border-right: 2px solid white;
+                flex-direction: column;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
                 .Date-Container {
-                    flex-direction: column; 
-                    justify-content: flex-start; 
-                    align-items: center; 
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-end;
                     display: flex;
-            
                     p {
                         margin-block-start: 0;
                         margin-block-end: 0;
-                        text-align: center; 
-                        color: white; 
-                        font-size: 34.36px; 
+                        text-align: center;
+                        color: white;
                         font-family: Ubuntu;
-                        word-wrap: break-word; 
-                        .Day {
-                            width: 103.08px; 
-                            height: 79.02px; 
-                            font-weight: 700; 
-                        }
-                        .Hour {
-                            width: 100.78px; 
-                            height: 37.79px;                 
-                            font-weight: 500;
-                        }
+                        word-wrap: break-word;
                     }
                 }
                 .Type-Container {
-                    justify-content: flex-start; 
-                    align-items: flex-start; 
-                    gap: 12.60px; 
+                    justify-content: flex-end;
+                    align-items: flex-start;
                     display: inline-flex;
                 }
             }
             .Right-Container {
-                padding: 1rem;
-                flex-direction: column; 
-                justify-content: flex-start; 
-                align-items: flex-start; 
-                gap: 17.18px; 
+                flex-direction: column;
                 display: inline-flex;
+                padding-left: 1rem;
                 .Text-Blue {
-                    color: rgba(100.88, 87.93, 249.87, 0.92); 
-                    font-size: 31px;
-                    font-weight: 700; 
+                    color: rgba(100.88, 87.93, 249.87, 0.92);
+                    font-weight: 700;
                     word-wrap: break-word;
                 }
-                .Text-Tittle{
-                    color: white; 
-                    font-size: 31px; 
-                    font-weight: 700; 
-                    word-wrap: break-word
+                .Text-Tittle {
+                    color: white;
+                    font-weight: 700;
                 }
                 .Location-Container {
-                    width: 100%; 
-                    height: 28.63px; 
-                    justify-content: flex-start; 
-                    align-items: flex-start; 
-                    gap: 3.72px; 
-                    display: inline-flex;
-                    .Text-Location {                        
-                        color: white; 
-                        font-size: 22.91px; 
-                        font-weight: 400; 
-                        word-wrap: break-word
+                    width: 100%;
+                    height: 28.63px;
+                    gap: 3.72px;
+                    .Text-Location {
+                        color: white;
+                        font-weight: 400;
+                        word-wrap: break-word;
                     }
                 }
                 .Text-Blue-Speaker {
-                    color: rgba(100.88, 87.93, 249.87, 0.92); 
-                    font-size: 16px;                    
-                    font-weight: 700; 
+                    color: rgba(100.88, 87.93, 249.87, 0.92);
+                    font-weight: 700;
                     word-wrap: break-word;
                 }
                 .Speaker-Container {
-                    justify-content: center; 
-                    align-items: center; 
-                    gap: 9.18px; 
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 9.18px;
                     display: inline-flex;
-                    .Speaker-Img {
-                        width: 59.55px; 
-                        height: 59.55px;
-                        border-radius: 9999px
+                    .Speaker-Img {;
+                        object-fit: cover;
                     }
-                    .Speaker-Info-Container {                        
-                        align-self: stretch; 
-                        padding-top: 2.40px; 
-                        padding-bottom: 6.41px; 
-                        padding-left: 0.02px; 
-                        padding-right: 3.01px; 
-                        flex-direction: column; 
-                        justify-content: flex-start; 
-                        align-items: flex-start; 
-                        gap: 5px; 
+                    .Speaker-Info-Container {
+                        align-self: stretch;
+                        padding-top: 2.4px;
+                        padding-bottom: 6.41px;
+                        padding-left: 0.02px;
+                        padding-right: 3.01px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 5px;
                         display: inline-flex;
                         .Speaker-Name-Text {
-                            color: white; 
-                            font-size: 16px; 
-                            font-weight: 500; 
+                            color: white;
+                            font-weight: 500;
                             word-wrap: break-word;
                         }
                         .Speaker-Rol-Text {
-                            text-align: center; 
-                            color: white; 
-                            font-size: 12px; 
-                            font-weight: 300; 
+                            text-align: center;
+                            color: white;
+                            font-weight: 300;
                             word-wrap: break-word;
                         }
                     }
@@ -287,56 +231,23 @@ const event_hour = getHour(date);
             }
         }
         .Button-Container {
-            padding: 1rem;
-            height: 58px; 
-            padding-left: 40px; 
-            padding-right: 40px; 
-            padding-top: 30px; 
-            padding-bottom: 30px; 
-            border-radius: 17px; 
-            overflow: hidden; 
-            border: 2px #FFD02A solid; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 10px; 
-            display: inline-flex;
+            overflow: hidden;
+            border: 2px #ffd02a solid;
+            justify-content: center;
+            align-items: center;
             .Button {
-                text-align: center; 
-                color: #FFD02A; 
-                font-size: 30px; 
-                font-family: Work Sans; 
-                font-weight: 700; 
-                line-height: 27.88px; 
-                word-wrap: break-word
+                text-align: center;
+                color: #ffd02a;
+                font-family: Work Sans;
+                font-weight: 700;
+                word-wrap: break-word;
             }
         }
         .Button-Container:is(:hover, :focus-within) {
-            display: inline-flex;
-            height: 58px;
-            padding: 30px 40px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 17px;
-            background: #FFD02A;
-    
-            .Button{
+            background: #ffd02a;
+            .Button {
                 color: #070707;
-                text-align: center;
-                font-family: Work Sans;
-                font-size: 30px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 27.878px; /* 92.927% */
             }
-        }
-    }
-    .Card-Container:is(:hover, :focus-within) {
-        .Card-Body {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 84%);
-        }
-        .Description {
-            visibility: visible;
         }
     }
 </style>
