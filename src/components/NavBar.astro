@@ -1,12 +1,13 @@
 ---
 import CSlogo from "../../public/CSlogo.astro";
+import HamburgerMenu from "public/HamburgerMenu.astro";
 ---
 
 <!-- navbar that spans the full page and sticks to the top when scrolling using tailwind-->
-<div class="w-full z-20 top-0 start-0 h-28">
-    <div class="fixed w-full z-20 top-0 start-0 p-6">
+<div class="w-full z-20 top-0 start-0 h-20">
+    <div class="fixed w-full z-20 top-0 start-0 p-3">
         <nav class="bg-andes-yellow rounded-lg">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2 px-2 sm:px-4">
                 <a href="" class="transition flex items-center space-x-2 rtl:space-x-reverse ease-in-out hover:scale-105">
                     <div class="flex items-center justify-center w-10 h-10">
                         <CSlogo />
@@ -21,9 +22,7 @@ import CSlogo from "../../public/CSlogo.astro";
                         aria-controls="navbar-sticky"
                         aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
-                        </svg>
+                        <HamburgerMenu class="w-5 h-5"/>
                     </button>
                 </div>
                 <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-2 mx-3" id="navbar-sticky">
