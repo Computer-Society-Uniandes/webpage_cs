@@ -10,6 +10,11 @@ export default {
                 "pink": "#E7526D",
                 "black": "#000000",
             },
+            spacing: {
+                "100": "25rem",
+                "104": "26rem",
+                "108": "27rem",
+            },
         },
     },
     plugins: [require("flowbite/plugin")],
