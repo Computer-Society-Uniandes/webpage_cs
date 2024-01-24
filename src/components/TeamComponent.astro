@@ -6,13 +6,6 @@ interface Props{
 
 const{img, teamName} = Astro.props;
 ---
-<head>
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
-</head>
-
-
 
 <div class = "team">
     <img class = "img" src = {img} alt = "">
@@ -55,9 +48,6 @@ const{img, teamName} = Astro.props;
         text-align: center;
     }
     @media only screen and (min-width: 600px) {
-        .team:hover .team-body{
-        right: 0;
-        }
         .team{
             border-radius: 50%;
             background-color: #D9D9D9;
@@ -89,9 +79,6 @@ const{img, teamName} = Astro.props;
 
    }
     @media only screen and (min-width: 768px) {
-        .team:hover .team-body{
-        right: 0;
-        }
         .team{
             border-radius: 50%;
             background-color: #D9D9D9;
