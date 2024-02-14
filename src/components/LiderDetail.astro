@@ -1,0 +1,118 @@
+---
+import InstagramLogo from '@/icons/Instagram_Logo.astro'
+import GitHubLogo from '@/icons/GitHub_Logo.astro'
+import FacebookLogo from '@/icons/Facebook_Logo.astro'
+---
+  
+<style>
+  @keyframes aparecerDesdeArriba {
+	  from {
+		  opacity: 0;
+	  }
+	  to {
+		  opacity: 1;
+	  }
+	}
+	
+  .main {
+    animation: aparecerDesdeArriba 3s ease-out;
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección a columna en dispositivos pequeños */
+    border-radius: 24px;
+    background: #2B2B2B;
+    border-radius: 24px;
+  }
+  .imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+  .contenido {
+    color: #FFF;
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150.536%; 
+    padding: 20px; /* Añadimos un poco de espacio alrededor del contenido */
+  }
+  .nombrelimite {
+    color: rgba(101, 88, 250, 0.92);
+    font-family: Ubuntu;
+    font-size: 30px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .nombre{
+    color: #FFD02A;
+    font-family: Ubuntu;
+    font-size: 30px; /* Ajustamos el tamaño del nombre para dispositivos pequeños */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .lider{
+    color: rgba(255, 255, 255, 0.92);
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .rol{
+    color: rgba(255, 255, 255, 0.92);
+    font-family: Ubuntu;
+    
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  @media only screen and (min-width: 800px) {
+    /* Estilos específicos para dispositivos con un ancho mínimo de 600px */
+    .main {
+      flex-direction: row; /* Cambiamos la dirección a fila para dispositivos más grandes */
+    }
+    .contenido {
+      font-size: 18px; /* Ajustamos el tamaño del texto para dispositivos más grandes */
+    }
+    .nombrelimite, .nombre {
+      font-size: 52.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+    }
+    .lider {
+      font-size: 32.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+    }
+    .imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;    
+    }
+  }
+</style>
+<div class="main">
+  <img class="imagen" src="https://img.freepik.com/foto-gratis/disparo-vertical-persona-manos-fondo-puesta-sol_181624-41845.jpg" >
+  <div class="contenido">
+    <h2>
+      <span class="nombrelimite">&lt;/</span>
+      <span class="nombre">Felipe Rueda 🚀</span>
+      <span class="nombrelimite">/&gt;</span>
+    </h2>
+    <div style="display: flex; align-items: center; ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="20" fill="#FFD02A"/>
+      </svg>
+      <p class="lider" style="margin-left: 10px;">Lider Scouting</p>
+    </div>
+    <h3 class = "rol"> 7mo Semestre Ing. Sistemas</h3>
+    <p class="contenido">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+    <div style="display: flex; align-items: center; ">
+      <InstagramLogo/>
+      <GitHubLogo/>
+      <FacebookLogo/>
+    </div>
+  </div>
+</div>

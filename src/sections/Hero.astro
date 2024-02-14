@@ -1,0 +1,73 @@
+---
+import CodeHome from '@/components/CodeHome.astro';
+---
+
+<style>		
+	@keyframes aparecerDesdeArriba {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	
+	.main {
+		animation: aparecerDesdeArriba 3s ease-out; /* Ajusta la duración y el timing function según tus necesidades */
+	}
+	.principal{
+		text-align: center; 
+		padding: 1%; 
+		padding-bottom: 0%; 
+		align-items: center; 
+		justify-content: center;
+		flex-direction: column;
+	}
+	.parentesis{
+        color: var(--Accent-1, #E7526D);
+        font-family: Ubuntu;
+        font-size: 31px;
+        font-style: normal;
+        font-weight: 700;
+		text-shadow: 0 0 5px #000000;
+    }
+    .uniandes{
+        color: var(--White, #FFD110);
+        font-family: Ubuntu;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 41.935px;
+        letter-spacing: 0.737px;
+		text-shadow: 0 0 5px #000000;
+    }
+    .ComputerSociety{
+        color: var(--White, #FFF);
+        font-family: Ubuntu;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+		text-shadow: 0 0 5px #000000;
+    }
+	
+	@media only screen and (min-width: 600px) {
+		/* Estilos específicos para dispositivos con un ancho mínimo de 600px */
+		.main {
+			flex-direction: row; /* Cambiamos la dirección a fila para dispositivos más grandes */
+		}
+		.ComputerSociety, .uniandes, .parentesis {
+			font-size: 70px; /* Ajustamos el tamaño del texto para dispositivos más grandes */
+		}
+	}
+</style>
+<div class="main">
+	<h2  class="principal">
+        <span class="parentesis">&#123;</span>
+        <span class="ComputerSociety">Computer Society </span>
+        <span class="uniandes">Uniandes</span>
+        <span class="parentesis"> &#125;</span>
+    </h2>
+	<div style="padding: 7%">
+		<CodeHome />
+	</div>
+	
+</div>
