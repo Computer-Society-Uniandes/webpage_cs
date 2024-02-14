@@ -1,0 +1,39 @@
+---
+import Lider from '../components/LiderDetail.astro';
+import Miembro from '../components/MemberCard.astro';
+---
+
+<div>
+    <h1 class = "title"> 
+        <span class = "pink"> &#123; </span> <span class = "default"> Lideres y Miembros </span> <span class = "pink"> &#125;</span>
+    </h1>
+</div>
+
+
+<style>
+    
+    .title{
+        text-align: center;   
+        font-size: 120%;
+    }
+    .pink{
+        color: #D65C6F;
+    }
+
+    .default{
+        color: #D9D9D9;
+    }
+    
+    @media only screen and (min-width: 600px) {
+        .title{
+        text-align: center;   
+        font-size: 150%;
+        }
+    }
+    @media only screen and (min-width: 600px) {
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+    }
+</style>
