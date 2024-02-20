@@ -5,27 +5,30 @@
       "@/*": [
         "src/*"
       ],
-      "@/components": [
+      "@components/*": [
         "src/components/*"
       ],
-      "@/sections": [
+      "@sections/*": [
         "src/sections/*"
       ],
-      "@/layout": [
+      "@layouts/*": [
         "src/layouts/*"
       ],
-      "@/icons": [
+      "@icons/*": [
         "src/icons/*"
       ],
-      "@images": [
-        "src/images"
+      "@images/*": [
+        "src/images/*"
       ],
-      "@styles":[
+      "@styles/*":[
         "src/styles/*"
-      ]
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   },
   "extends": "astro/tsconfigs/base"
 }
