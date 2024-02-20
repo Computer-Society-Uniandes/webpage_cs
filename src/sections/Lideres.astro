@@ -8,13 +8,138 @@ import Miembro from '../components/MemberCard.astro';
         <span class = "pink"> &#123; </span> <span class = "default"> Lideres y Miembros </span> <span class = "pink"> &#125;</span>
     </h1>
 </div>
+<div class="container">
+    <ul class="cards">
+      <li class="card">
+        <div class = "card-content">
+            <Lider/>
+        </div>
+      </li>
+      <li class="card">
+        <div class = "card-content">
+            <Lider/>
+        </div>
+      </li>  
+      <li class="card">
+        <div class = "card-content">
+            <Lider/>
+        </div>
+      </li>   
+    </ul>
+  </div>
+  <div class = "grid">
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+            />
+        </div>
+        
 
+  </div>
 
 <style>
     
     .title{
         text-align: center;   
         font-size: 120%;
+        font-weight: 700;
+        font-style: normal;
+        font: Ubuntu;
     }
     .pink{
         color: #D65C6F;
@@ -23,7 +148,58 @@ import Miembro from '../components/MemberCard.astro';
     .default{
         color: #D9D9D9;
     }
+    .container {
+        max-width: 80%;
+        max-height: 30%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    .cards {
+        display: flex;
+        padding: 25px 0px;
+        list-style: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+        scroll-snap-align: start;
+        transition: all 0.2s;
+    }
+    .card .card-content {
+        margin: 20px 0;
+        max-width: 100%;
+    }
+
+    .cards::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .cards::-webkit-scrollbar-thumb,
+    .cards::-webkit-scrollbar-track {
+        border-radius: 92px;
+    }
+
+    .cards::-webkit-scrollbar-thumb {
+        background: #FFC100;
+    }
     
+    .grid{
+        
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(200px, auto);
+    }
+
     @media only screen and (min-width: 600px) {
         .title{
         text-align: center;   
@@ -36,4 +212,5 @@ import Miembro from '../components/MemberCard.astro';
         font-size: 300%;
         }
     }
+    
 </style>
