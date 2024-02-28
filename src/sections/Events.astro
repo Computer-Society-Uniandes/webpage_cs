@@ -1,6 +1,23 @@
 ---
 import CardEvent from "@/components/CardEvent.astro";
+import elementos from "@/data/Events.json";
 ---
+
+<script>
+    let mostrarTodos = false;
+
+    const button = document.getElementById("tgt");
+
+    button.addEventListener("click", () => {
+        console.log("click");
+        mostrarTodos = !mostrarTodos;
+        if (mostrarTodos) {
+            button.innerHTML = "Mostrar menos";
+        } else {
+            button.innerHTML = "Mostrar todos";
+        }
+    });
+</script>
 
 <div class="w-full mx-auto h-auto bg-gray-darker py-5">
     <div class="flex w-full justify-center py-1 space-x-4">
@@ -8,48 +25,63 @@ import CardEvent from "@/components/CardEvent.astro";
         <h1 class="text-4xl text-white font-bold">Eventos</h1>
         <h1 class="text-4xl text-pink font-bold">{"}"}</h1>
     </div>
-    <div class="flex flex-wrap w-full justify-self-center pe-5 px-3 lg:px-28">
-        <div class="flex flex-col w-fit md:w-1/2 lg:w-1/3 h-100 p-2">
-            <CardEvent
-                date={new Date()}
-                type="WEB"
-                event_title="Your Event Title aaaaaaaaaaaaaaaaaaaaaaaaa "
-                location="Event Location"
-                speaker_name="Speaker Name"
-                speaker_rol="Speaker Role"
-                speaker_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                event_body="Event Description aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                event_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                eventId="unique-event-id"
-            />
+    <div class="flex flex-wrap w-full justify-self-center px-3 md:px-28 lg:px-28">
+        {
+            elementos.slice(0, 3).map((elemento) => (
+                <div class="flex flex-col w-full lg:w-1/3 h-100 p-2">
+                    <CardEvent
+                        date={new Date(elemento.date)}
+                        type={elemento.type}
+                        title={elemento.title}
+                        location={elemento.location}
+                        speaker_name={elemento.speaker_name}
+                        speaker_rol={elemento.speaker_rol}
+                        speaker_image={elemento.speaker_image}
+                        body={elemento.body}
+                        image={elemento.image}
+                        id={elemento.id}
+                        link={elemento.link}
+                    />
+                </div>
+            ))
+        }
+    </div>
+
+    <div id="accordion-collapse" data-accordion="collapse" class="transition-all duration-300 items-center">
+        <div
+            id="accordion-collapse-body-1"
+            class="hidden flex flex-wrap w-full justify-self-center px-3 md:px-28 lg:px-28"
+            aria-labelledby="accordion-collapse-heading-1">
+            {
+                elementos.slice(3).map((elemento) => (
+                    <div class="flex-col w-full lg:w-1/3 h-100 p-2 card-event">
+                        <CardEvent
+                            date={new Date(elemento.date)}
+                            type={elemento.type}
+                            title={elemento.title}
+                            location={elemento.location}
+                            speaker_name={elemento.speaker_name}
+                            speaker_rol={elemento.speaker_rol}
+                            speaker_image={elemento.speaker_image}
+                            body={elemento.body}
+                            image={elemento.image}
+                            id={elemento.id}
+                            link={elemento.link}
+                        />
+                    </div>
+                ))
+            }
         </div>
-        <div class="flex flex-col w-fit md:w-1/2 lg:w-1/3 h-100 p-2">
-            <CardEvent
-                date={new Date()}
-                type="WEB"
-                event_title="Your Event Title sadsaafds asf adsdasd  asdasdasda asdasdas asdasdfasd gdsf gs sadad"
-                location="Event Location"
-                speaker_name="Speaker Name"
-                speaker_rol="Speaker Role"
-                speaker_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                event_body="Event Description"
-                event_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                eventId="unique-event-id"
-            />
-        </div>
-        <div class="flex flex-col w-fit md:w-1/2 lg:w-1/3 h-100 p-2">
-            <CardEvent
-                date={new Date()}
-                type="WEB"
-                event_title="Your Event Title asdasd asdasdas asdasd"
-                location="Event Location"
-                speaker_name="Speaker Name"
-                speaker_rol="Speaker Role"
-                speaker_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                event_body="Event Description"
-                event_image="https://upload.wikimedia.org/wikipedia/commons/3/3c/Giant_Panda_2004-03-2.jpg"
-                eventId="unique-event-id"
-            />
-        </div>
+        <h2 id="accordion-collapse-heading-1" class="flex justify-center py-5">
+            <button
+                type="button"
+                id="tgt"
+                class="text-white bg-pink py-2 px-4 rounded-lg"
+                data-accordion-target="#accordion-collapse-body-1"
+                aria-expanded="false"
+                aria-controls="accordion-collapse-body-1">
+                <span>Mostrar todos</span>
+            </button>
+        </h2>
     </div>
 </div>

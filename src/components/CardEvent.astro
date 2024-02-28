@@ -3,17 +3,18 @@ import LocationIcon from "@/icons/Location.astro";
 interface Props {
     date: Date;
     type: string;
-    event_title: string;
+    title: string;
     location: string;
     speaker_name: string;
     speaker_rol: string;
     speaker_image: string;
-    event_body: string;
-    event_image: string;
-    eventId: string;
+    body: string;
+    image: string;
+    id: string;
+    link: string;
 }
 
-const { date, type, event_title, location, speaker_name, speaker_rol, speaker_image, event_body, event_image } = Astro.props;
+const { date, type, title, location, speaker_name, speaker_rol, speaker_image, body, image, link } = Astro.props;
 
 function getMonth(date: Date) {
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -29,23 +30,24 @@ function formatEventBody(body: string) {
 function getHour(date: Date) {
     let hour = date.getHours();
     if (hour < 12) {
-        return `${hour}:${date.getMinutes()} AM`;
+        return `${hour.toString()}:${date.getMinutes().toString().padStart(2, "0")} AM`;
     } else {
-        return `${hour - 12}:${date.getMinutes()} PM`;
+        return `${(hour - 12).toString()}:${date.getMinutes().toString().padStart(2, "0")} PM`;
     }
 }
 
 const event_month = getMonth(date);
 const event_day = date.getDay();
 const event_hour = getHour(date);
+
 ---
 
 <div class="Card-Container justify-end rounded-3xl relative group">
-    <img class="Card-Img" src={event_image} alt=`${event_title}-Image` />
+    <img class="Card-Img" src={image} alt=`${title}-Image` />
     <div class="Card-Body w-full">
         <div class="Description transition-all group-hover:opacity-100 group-focus:opacity-100 opacity-0 absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <p class="text-lg text-white">
-                {event_body}
+                {body}
             </p>
         </div>
         <div class="Info-Container p-3 transition-all group-hover:opacity-0 group-focus:opacity-0 opacity-100 ">
@@ -64,6 +66,10 @@ const event_hour = getHour(date);
                     {type.toLocaleUpperCase() === "WEB" && <div style="width: 27.49px; height: 27.49px; background: #00F1A9; border-radius: 9999px" />}
                     {type.toLocaleUpperCase() === "IA" && <div style="width: 27.49px; height: 27.49px; background: #FF4747; border-radius: 9999px" />}
                     {type.toLocaleUpperCase() === "SCOUTING" && <div style="width: 27.49px; height: 27.49px; background: #8819F8; border-radius: 9999px" />}
+                    {type.toLocaleUpperCase() === "SECURITY" && <div style="width: 27.49px; height: 27.49px; background: #FFD02A; border-radius: 9999px" />}
+                    {type.toLocaleUpperCase() === "SYNTAX" && <div style="width: 27.49px; height: 27.49px; background: #FFA800; border-radius: 9999px" />}
+                    {type.toLocaleUpperCase() === "GAMEDEV" && <div style="width: 27.49px; height: 27.49px; background: #5de93a; border-radius: 9999px" />}
+
                 </div>
             </div>
 
@@ -71,7 +77,7 @@ const event_hour = getHour(date);
                 <div>
                     <span class="Text-Blue">&lcub;</span>
                     <span class="Text-Tittle w-full text-pretty">
-                        {event_title}
+                        {title}
                     </span>
                     <span class="Text-Blue">
                         &rcub;<br />
@@ -103,7 +109,9 @@ const event_hour = getHour(date);
             </div>
         </div>
         <div class="Button-Container px-4 py-2 rounded-xl w-auto mb-3">
-            <div class="Button">Registrate</div>
+            <a href={link} class="Button" target="_blank">
+                Registrate
+            </a>
         </div>
     </div>
 </div>
