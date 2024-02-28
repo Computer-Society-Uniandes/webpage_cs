@@ -8,6 +8,7 @@ export default {
                 "gray-dark": "#2D2D2D",
                 "gray-darker": "#242424",
                 "pink": "#E7526D",
+                "pink-dark": "#D63A5C",
                 "black": "#000000",
             },
             spacing: {
