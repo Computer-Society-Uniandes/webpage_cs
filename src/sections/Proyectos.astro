@@ -1,7 +1,8 @@
 ---
 import Proyecto from "@/components/Proyecto.astro";
+import projects from "@/data/Projects.json";
 ---
-    
+
 <style>
     @keyframes aparecerDesdeArriba {
 	    from {
@@ -11,17 +12,17 @@ import Proyecto from "@/components/Proyecto.astro";
     		opacity: 1;
 	    }
 	}
-    
+
     .main {
         animation: aparecerDesdeArriba 3s ease-out;
-        flex-direction: column; 
+        flex-direction: column;
         border-radius: 24px;
         background: #2B2B2B;
         border-bottom: 20px;
         padding: 1%;
     }
     .tittle{
-        text-align: center; 
+        text-align: center;
         padding: 40px;
     }
     .parentesis{
@@ -48,7 +49,7 @@ import Proyecto from "@/components/Proyecto.astro";
         font-weight: 700;
     }
     .barraAmarilla{
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
         border-radius: 21.629px;
         background: #FFD02A;
@@ -66,7 +67,7 @@ import Proyecto from "@/components/Proyecto.astro";
         font-family: "Work Sans";
         font-style: normal;
         font-weight: 400;
-        line-height: 155.556%;         
+        line-height: 155.556%;
     }
     .proyectoDetails{
         color: #FFD02A;
@@ -74,7 +75,7 @@ import Proyecto from "@/components/Proyecto.astro";
         font-size: 56.34px;
         font-style: normal;
         font-weight: 700;
-        line-height: 131.25%; 
+        line-height: 131.25%;
         padding-left: 15%;
     }
     .linea{
@@ -84,22 +85,22 @@ import Proyecto from "@/components/Proyecto.astro";
         flex-shrink: 0;
         background: rgb(154, 154, 154);
         margin-top: 4%;
-    }     
+    }
     @media only screen and (max-width: 900px) {
         .parentesis, .proyectos, .enCurso {
-            font-size: 40px; 
+            font-size: 40px;
         }
         .barraAmarilla{
         height: auto;
         margin: auto;
         flex-direction: column
-        
+
         }
         .parrafo{
             font-size: 20px;
             margin: 0 5%;
         }
-        
+
     }
 </style>
 <div class="main">
@@ -126,12 +127,22 @@ import Proyecto from "@/components/Proyecto.astro";
         });
     </script>
     <div class="barraAmarilla">
-        <Proyecto onclick="mostrarOcultarDivs()"/>
-        <Proyecto onclick="mostrarOcultarDivs()"/>
-        <Proyecto onclick="mostrarOcultarDivs()"/>
-        <Proyecto onclick="mostrarOcultarDivs()"/>
-        <Proyecto onclick="mostrarOcultarDivs()"/>
-        
+        {
+            projects.map((project) => (
+                // TODO esta implemetacion de funciones basada en clicks no funciona
+                // <div onclick={mostrarOcultarDivs()} class="proyecto">
+                <Proyecto
+                    nombre={project.nombre}
+                    descripcion={project.descripcion}
+                    novedades={project.novedades}
+                    etapas={project.etapas}
+                    fechaFin={new Date(project.fechaFin)}
+                    img={project.img}
+                />
+                // </div>
+            ))
+        }
+
     </div>
     <div class="Detail">
         <div class="linea"></div>
@@ -140,7 +151,6 @@ import Proyecto from "@/components/Proyecto.astro";
             Lorem ipsum dolor sit amet consectetur. Justo quis nunc bibendum cursus scelerisque a quis varius urna. Cum sed eget amet nisl risus eget faucibus. Ac pellentesque sed lobortis elementum sit semper massa tristique augue. Venenatis molestie congue viverra ut odio vel mauris tellus.
         </p>
     </div>
-    
-  
+
+
 </div>
- 

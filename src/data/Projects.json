@@ -1,0 +1,57 @@
+[
+    {
+        "nombre": "Proyecto A",
+        "descripcion": "Descripción del Proyecto A",
+        "novedades": ["Novedad 1", "Novedad 2"],
+        "etapas": {
+            "etapa1": "Descripción de la etapa 1",
+            "etapa2": "Descripción de la etapa 2"
+        },
+        "fechaFin": "2024-03-15",
+        "img": "https://picsum.photos/300/200"
+    },
+    {
+        "nombre": "Proyecto B",
+        "descripcion": "Descripción del Proyecto B",
+        "novedades": ["Novedad 1", "Novedad 2", "Novedad 3"],
+        "etapas": {
+            "etapa1": "Descripción de la etapa 1",
+            "etapa2": "Descripción de la etapa 2",
+            "etapa3": "Descripción de la etapa 3"
+        },
+        "fechaFin": "2024-04-30",
+        "img": "https://picsum.photos/300/200"
+    },
+    {
+        "nombre": "Proyecto C",
+        "descripcion": "Descripción del Proyecto C",
+        "novedades": ["Novedad 1"],
+        "etapas": {
+            "etapa1": "Descripción de la etapa 1"
+        },
+        "fechaFin": "2024-02-28",
+        "img": "https://picsum.photos/300/200"
+    },
+    {
+        "nombre": "Proyecto B",
+        "descripcion": "Descripción del Proyecto B",
+        "novedades": ["Novedad 1", "Novedad 2", "Novedad 3"],
+        "etapas": {
+            "etapa1": "Descripción de la etapa 1",
+            "etapa2": "Descripción de la etapa 2",
+            "etapa3": "Descripción de la etapa 3"
+        },
+        "fechaFin": "2024-04-30",
+        "img": "https://picsum.photos/300/200"
+    },
+    {
+        "nombre": "Proyecto C",
+        "descripcion": "Descripción del Proyecto C",
+        "novedades": ["Novedad 1"],
+        "etapas": {
+            "etapa1": "Descripción de la etapa 1"
+        },
+        "fechaFin": "2024-02-28",
+        "img": "https://picsum.photos/300/200"
+    }
+]

@@ -1,4 +1,14 @@
 ---
+interface Props {
+    nombre: string;
+    descripcion: string;
+    novedades: string[];
+    etapas: { [etapa: string]: string };
+    fechaFin: Date;
+    img: string;
+}
+
+const { nombre, descripcion, novedades, etapas, fechaFin, img } = Astro.props;
 
 ---
 
@@ -9,7 +19,7 @@
         transition: transform 0.3s ease;
     }
     .circulo:hover {
-    transform: scale(1.2); 
+    transform: scale(1.2);
     }
     img {
         max-width: 100%;
@@ -17,16 +27,16 @@
         border-radius: 50%;
     }
     .titulo{
-        text-align: center; 
-        
+        text-align: center;
+
     }
     @media only screen and (max-width: 900px) {
-        .circulo {              
+        .circulo {
             float: left; /* Coloca la imagen a la izquierda */
             max-width: 40%;
-            
+
         }
-        .titulo {              
+        .titulo {
             float: right; /* Coloca la imagen a la izquierda */
             margin: 0px;
             margin-top: 10%;
@@ -35,15 +45,16 @@
             max-width: 40%;
         }
         img {
-        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
         }
     }
 </style>
-     
+
 <div>
      <div class="circulo" >
-         <img src="https://avatars.githubusercontent.com/u/127456648?s=200&v=4" alt="Proyecto">
+         <img src={ img } alt="Imagen" />
      </div>
-     <h3 class="titulo">Taller Python</h3>
+     <h3 class="titulo">{nombre}</h3>
 </div>
-   
