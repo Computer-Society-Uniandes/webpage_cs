@@ -1,5 +1,5 @@
 ---
-interface Props{ 
+interface Props{
     img: string
     teamName: string
 }
@@ -14,7 +14,12 @@ const{img, teamName} = Astro.props;
 
 
 <style>
-    
+    .img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .team:hover .team-body{
         right: 0;
     }
@@ -24,8 +29,8 @@ const{img, teamName} = Astro.props;
         position: relative;
         overflow: hidden;
         display: flex;
-        width: 70px; 
-        height: 70px; 
+        width: 70px;
+        height: 70px;
         justify-content: center;
         align-items: center;
         color:black;
@@ -54,8 +59,8 @@ const{img, teamName} = Astro.props;
             position: relative;
             overflow: hidden;
             display: flex;
-            width: 170px; 
-            height: 170px; 
+            width: 170px;
+            height: 170px;
             justify-content: center;
             align-items: center;
             color:black;
@@ -85,8 +90,8 @@ const{img, teamName} = Astro.props;
             position: relative;
             overflow: hidden;
             display: flex;
-            width: 150px; 
-            height: 150px; 
+            width: 150px;
+            height: 150px;
             justify-content: center;
             align-items: center;
             color:black;
