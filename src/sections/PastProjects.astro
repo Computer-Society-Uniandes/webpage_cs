@@ -1,0 +1,95 @@
+---
+import PastProject from "../components/PastProject.astro";
+---
+<style>
+    .past-projects{
+        display: flex;
+        flex-direction: column;
+        padding-top: 8rem;
+    }
+    .past-projects__title{
+        font-family: Ubuntu,serif;
+        font-size: 4.75em;
+        font-style: normal;
+        font-weight: 600;
+        margin-bottom: 4rem;
+    }
+    .past-projects__title_1{
+        color: #E7526D;
+    }
+    .past-projects__title_2{
+        color: #FFD110;
+    }
+    .past-projects__title_3{
+        color: #FFF;
+    }
+
+    .past-projects > p{
+        font-family: Ubuntu,serif;
+        font-size: 1.5em;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: #FFF;
+        margin-bottom: 4rem;
+    }
+
+    .past-projects__carrousel{
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        gap: 2rem;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<section id="past-projects" class="past-projects container w-full mx-auto">
+    <h2 class="past-projects__title">
+        <span class="past-projects__title_1"><</span>
+        <span class="past-projects__title_2">Proyectos</span>
+        <span class="past-projects__title_3"> Anteriores</span>
+        <span class="past-projects__title_1">></span>
+    </h2>
+    <p class="">
+        Lorem ipsum dolor sit amet consectetur. Justo quis nunc bibendum cursus scelerisque a quis varius urna. Cum sed eget amet nisl risus eget faucibus. Ac pellentesque sed lobortis elementum sit semper massa tristique augue. Venenatis molestie congue viverra ut odio vel mauris tellus.
+    </p>
+
+    <div class="past-projects__carrousel card-group ">
+            <PastProject
+                    cardPrimaryColor="#E7526D"
+            />
+            <PastProject
+                    cardAccentColor="rgba(255, 255, 255, 0.90)"
+            />
+            <PastProject
+                    tags={["3D", "AR/VR/MR", "Vision Pro"]}
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+            <PastProject
+
+            />
+    </div>
+</section>

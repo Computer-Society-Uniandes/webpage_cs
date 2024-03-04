@@ -1,0 +1,53 @@
+---
+import CSlogo from "../icons/CS_Logo.astro";
+import HamburgerMenu from "@/icons/HamburgerMenu.astro";
+---
+
+<!-- navbar that spans the full page and sticks to the top when scrolling using tailwind-->
+<div class="w-full z-20 top-0 start-0 h-20">
+    <div class="fixed w-full z-20 top-0 start-0 p-3">
+        <nav class="bg-andes-yellow rounded-lg">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2 px-2 sm:px-4">
+                <a href="" class="transition flex items-center space-x-2 rtl:space-x-reverse ease-in-out hover:scale-105">
+                    <div class="flex items-center justify-center w-10 h-10">
+                        <CSlogo />
+                    </div>
+                    <h2 class="text-3xl font-bold text-black">CS Uniandes</h2>
+                </a>
+                <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                    <button
+                        data-collapse-toggle="navbar-sticky"
+                        type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-950 rounded-lg lg:hidden hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                        aria-controls="navbar-sticky"
+                        aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <HamburgerMenu class="w-5 h-5"/>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-2 mx-3" id="navbar-sticky">
+                    <ul class="flex flex-col lg:p-0 mt-4 font-semibold lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 text-slate-50">
+                        <li>
+                            <a href="" class="transition block py-2 px-3 hover:text-pink lg:p-0" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="about" class="transition block py-2 px-3 hover:text-pink lg:p-0">Sobre Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="events" class="transition block py-2 px-3 hover:text-pink lg:p-0">Eventos</a>
+                        </li>
+                        <li>
+                            <a href="teams" class="transition block py-2 px-3 hover:text-pink lg:p-0">Equipos</a>
+                        </li>
+                        <li>
+                            <a href="projects" class="transition block py-2 px-3 hover:text-pink lg:p-0">Proyectos</a>
+                        </li>
+                        <li>
+                            <a href="members" class="transition block py-2 px-3 hover:text-pink lg:p-0">Miembros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
