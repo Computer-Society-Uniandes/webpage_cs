@@ -15,11 +15,12 @@ const {img, name, team, insta, github, facebook} = Astro.props;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
 </head>
-
-<div class="card">
-    <img class = "img" src = {img} alt = "">
-    <div class="card-body">
-        <div>
+<div class = "card">
+<div class="card-inner">
+    <div class="card-front">
+        <img class = "img" src = {img} alt = "">
+    </div>
+        <div class="card-back">
             <h1 class = "member-name">
                <span class = "yellow"> &lt;/ </span>  <span class = "light"> {name}</span> <span class = "yellow">&gt;</span>
             </h1>
@@ -31,21 +32,16 @@ const {img, name, team, insta, github, facebook} = Astro.props;
             <a href = {insta} class="gg-instagram" target="_blank"></a>
             <a href={github} class="fa fa-github" style="color: #ffcb3d; font-size:24px; position: absolute; bottom: 20px; left: 90px;" target="_blank"></a>
             <a href={facebook} class="gg-facebook" target="_blank"></a>
+        
         </div>
-    </div>
-    
+</div>
 </div>
 
 <style>
-    .card:hover .card-body{
-        right: 0;
-    }
+    
     .card{
         border-radius: 25px;
         background-color: #23262d;
-        position: relative;
-        overflow: hidden;
-        display: flex;
         width: 200px; 
         height: 200px; 
     }
@@ -55,22 +51,40 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         object-fit: fill;
         border-radius: 20px;
     }
-    .card-body{
+    .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    }
+    .card:hover .card-inner {
+    transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    }
+    .card-back{
         width: 100%;
         height: 100%;
         position: absolute;
         top:0;
-        right:-100%;
-        background: #00000081;
+        background: #1C1C4A;
         border-radius: 20px;
         justify-content: center;
         display: flex;
         flex-direction: column;
+        transform: rotateY(180deg);
     }
     .member-name{
         position: absolute;
         top: 35px;
-        left: 10px;
+        left: 15%;
         font-size: 20px;
 
     }
