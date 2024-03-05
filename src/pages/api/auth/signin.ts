@@ -1,11 +1,10 @@
 import type { APIRoute } from "astro";
-import { app } from "@/lib/firebase/server";
+import { app } from "@lib/firebase/server";
 import { getAuth } from "firebase-admin/auth";
 
-export const GET: APIRoute = async ({ request, cookies, redirect }) => {
+export const GET: APIRoute = async ({ redirect, request, cookies }) => {
   const auth = getAuth(app);
-
-  /* Get token from request headers */
+  /* Get the ID token from header */
   const idToken = request.headers.get("Authorization")?.split("Bearer ")[1];
   if (!idToken) {
     return new Response(
@@ -44,5 +43,5 @@ export const GET: APIRoute = async ({ request, cookies, redirect }) => {
     path: "/",
   });
 
-  return redirect("/", 302);
+  return redirect("/dashboard", 302);
 };

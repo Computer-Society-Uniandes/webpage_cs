@@ -1,8 +1,11 @@
-import { auth } from "@/lib/firebase/server";
-import { registerSchema } from "@/lib/schemas";
+import { app } from "@lib/firebase/server";
+import { getAuth } from "firebase-admin/auth";
+import { registerSchema } from "@lib/schemas";
 import type { APIRoute } from "astro";
 
-export const post: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request, redirect }) => {
+  const auth = getAuth(app);
+  
   const formData = await request.formData();
   const result = registerSchema.safeParse(formData);
 
@@ -10,7 +13,8 @@ export const post: APIRoute = async ({ request, redirect }) => {
   if (!result.success) {
     return new Response(
       JSON.stringify({
-        errors: result,
+        // @ts-ignore
+        errors: result.error.flatten(),
       }),
       { status: 400 }
     );

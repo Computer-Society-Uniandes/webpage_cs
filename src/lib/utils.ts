@@ -1,4 +1,7 @@
-import { auth } from "@/lib/firebase/server";
+import { app } from "@/lib/firebase/server";
+import { getAuth } from "firebase-admin/auth";
+
+const auth = getAuth(app);
 
 export async function getUser(cookie: string) {
   try {

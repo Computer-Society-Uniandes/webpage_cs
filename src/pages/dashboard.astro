@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getUser } from "@lib/utils";
+
+/* Get session cookie */
+if (!Astro.cookies.has("session")) {
+  return Astro.redirect("/signin");
+}
+
+/* Verify session cookie and get user */
+const sessionCookie = Astro.cookies.get("session").value;
+const user = await getUser(sessionCookie);
+if (!user) {
+  return Astro.redirect("/signin");
+}
+---
+
+<Layout title="Dashboard">
+  <main class="w-full grow flex flex-col items-center px-4">
+    <h1 class="text-3xl font-bold mt-8">Welcome {user.displayName} to the dashboard</h1>
+    <p>
+      We are happy to see you here
+    </p>
+    <form action="/api/auth/signout">
+      <button type="submit" class="dark:text-blue-400 text-blue-500 underline underline-offset-2 font-medium">
+        sign out
+      </button>
+    </form>
+  </main>
+</Layout>
