@@ -1,4 +1,8 @@
 ---
+import InstagramLogo from '@/icons/Instagram_Logo.astro'
+import GitHubLogo from '@/icons/GitHub_Logo.astro'
+import FacebookLogo from '@/icons/Facebook_Logo.astro'
+
 interface Props {
 	img: string;
 	name : string;
@@ -6,10 +10,12 @@ interface Props {
     insta: string;
     github: string;
     facebook: string;
+    teamColor : string;
 }
 
-const {img, name, team, insta, github, facebook} = Astro.props;
+const {img, name, team, insta, github, facebook, teamColor} = Astro.props;
 ---
+
 <head>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,7 +43,7 @@ const {img, name, team, insta, github, facebook} = Astro.props;
 </div>
 </div>
 
-<style>
+<style define:vars={ {teamColor} }>
     
     .card{
         border-radius: 25px;
@@ -75,7 +81,7 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         position: absolute;
         top:0;
         background: #1C1C4A;
-        border-radius: 20px;
+        border-radius: 5%;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -91,7 +97,7 @@ const {img, name, team, insta, github, facebook} = Astro.props;
     .teamImg{
         width: 20px;
         height: 20px;
-        background-color: #FF4747;
+        background-color: var(--teamColor);
         border-radius: 50%;
         position: absolute;
         top: 100px;
@@ -101,7 +107,7 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         position: absolute;
         top: 100px;
         left: 90px;
-        font-size: 15px;
+        font-size: 18px;
 
     }
     .yellow{
@@ -127,5 +133,64 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         cursor: pointer;
     }
     
+    @media only screen and (max-width: 600px) {
+        .card{
+        border-radius: 15px;
+        background-color: #23262d;
+        width: 150px; 
+        height: 150px; 
+        }
+
+        .member-name{
+        position: absolute;
+        top: 35px;
+        left: 15%;
+        font-size: 15px;
+
+        }
+        .teamImg{
+            width: 15px;
+            height: 15px;
+            background-color: var(--teamColor);
+            border-radius: 50%;
+            position: absolute;
+            top: 80px;
+            left: 40px;
+        }
+        .teams{
+            position: absolute;
+            top: 75px;
+            left: 70px;
+            font-size: 15px;
+
+        }
+        .gg-instagram {
+            position: absolute;
+            bottom: 20px;
+            left:30px;
+            color:  #FFC100;
+            cursor: pointer;
+        }
+
+        .gg-facebook {
+            position: absolute;
+            bottom: 20px;
+            left:60px;
+            color:  #FFC100;
+            cursor: pointer;
+        }
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+        
+    }
     
+    @media only screen and (min-width: 901px){
+        
+    }
+
+    @media only screen and (min-width: 1700px){
+        
+    }
+
 </style>
