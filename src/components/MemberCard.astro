@@ -1,4 +1,8 @@
 ---
+import InstagramLogo from '@/icons/Instagram_Logo.astro'
+import GitHubLogo from '@/icons/GitHub_Logo.astro'
+import FacebookLogo from '@/icons/Facebook_Logo.astro'
+
 interface Props {
 	img: string;
 	name : string;
@@ -6,20 +10,24 @@ interface Props {
     insta: string;
     github: string;
     facebook: string;
+    teamColor : string;
 }
 
-const {img, name, team, insta, github, facebook} = Astro.props;
+const {img, name, team, insta, github, facebook, teamColor} = Astro.props;
 ---
+
 <head>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
 </head>
-
-<div class="card">
-    <img class = "img" src = {img} alt = "">
-    <div class="card-body">
-        <div>
+<div class = "card">
+<div class="card-inner">
+    <div class="card-front">
+        <img class = "img" src = {img} alt = "">
+    </div>
+        <div class="card-back">
+            <div>
             <h1 class = "member-name">
                <span class = "yellow"> &lt;/ </span>  <span class = "light"> {name}</span> <span class = "yellow">&gt;</span>
             </h1>
@@ -27,25 +35,21 @@ const {img, name, team, insta, github, facebook} = Astro.props;
             <h1 class = "teams">
                 <span class = "light"> {team}</span>
             </h1>
+            </div>
 
             <a href = {insta} class="gg-instagram" target="_blank"></a>
             <a href={github} class="fa fa-github" style="color: #ffcb3d; font-size:24px; position: absolute; bottom: 20px; left: 90px;" target="_blank"></a>
             <a href={facebook} class="gg-facebook" target="_blank"></a>
+        
         </div>
-    </div>
-    
+</div>
 </div>
 
-<style>
-    .card:hover .card-body{
-        right: 0;
-    }
+<style define:vars={ {teamColor} }>
+    
     .card{
         border-radius: 25px;
         background-color: #23262d;
-        position: relative;
-        overflow: hidden;
-        display: flex;
         width: 200px; 
         height: 200px; 
     }
@@ -55,29 +59,47 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         object-fit: fill;
         border-radius: 20px;
     }
-    .card-body{
+    .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    }
+    .card:hover .card-inner {
+    transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    }
+    .card-back{
         width: 100%;
         height: 100%;
         position: absolute;
         top:0;
-        right:-100%;
-        background: #00000081;
-        border-radius: 20px;
+        background: #1C1C4A;
+        border-radius: 5%;
         justify-content: center;
         display: flex;
         flex-direction: column;
+        transform: rotateY(180deg);
     }
     .member-name{
         position: absolute;
         top: 35px;
-        left: 10px;
+        left: 15%;
         font-size: 20px;
 
     }
     .teamImg{
         width: 20px;
         height: 20px;
-        background-color: #FF4747;
+        background-color: var(--teamColor);
         border-radius: 50%;
         position: absolute;
         top: 100px;
@@ -85,9 +107,9 @@ const {img, name, team, insta, github, facebook} = Astro.props;
     }
     .teams{
         position: absolute;
-        top: 85px;
+        top: 100px;
         left: 90px;
-        font-size: 15px;
+        font-size: 18px;
 
     }
     .yellow{
@@ -113,5 +135,64 @@ const {img, name, team, insta, github, facebook} = Astro.props;
         cursor: pointer;
     }
     
+    @media only screen and (max-width: 600px) {
+        .card{
+        border-radius: 15px;
+        background-color: #23262d;
+        width: 150px; 
+        height: 150px; 
+        }
+
+        .member-name{
+        position: absolute;
+        top: 35px;
+        left: 15%;
+        font-size: 15px;
+
+        }
+        .teamImg{
+            width: 15px;
+            height: 15px;
+            background-color: var(--teamColor);
+            border-radius: 50%;
+            position: absolute;
+            top: 80px;
+            left: 40px;
+        }
+        .teams{
+            position: absolute;
+            top: 75px;
+            left: 70px;
+            font-size: 15px;
+
+        }
+        .gg-instagram {
+            position: absolute;
+            bottom: 20px;
+            left:30px;
+            color:  #FFC100;
+            cursor: pointer;
+        }
+
+        .gg-facebook {
+            position: absolute;
+            bottom: 20px;
+            left:60px;
+            color:  #FFC100;
+            cursor: pointer;
+        }
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+        
+    }
     
+    @media only screen and (min-width: 901px){
+        
+    }
+
+    @media only screen and (min-width: 1700px){
+        
+    }
+
 </style>

@@ -1,0 +1,280 @@
+---
+import Lider from '../components/LiderDetail.astro';
+import Miembro from '../components/MemberCard.astro';
+---
+
+<div>
+    <h1 class = "title"> 
+        <span class = "pink"> &#123; </span> <span class = "default"> Lideres y Miembros </span> <span class = "pink"> &#125;</span>
+    </h1>
+</div>
+<div class="container">
+    <ul class="cards">
+      <li class="card">
+        <div class = "card-content">
+            <Lider
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                lider = "Lider de Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                rol= "6to semestre de ingeniería de sistemas";
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod elit vel euismod porttitor. Aliquam malesuada tortor in posuere semper. Nam sit amet leo luctus, dictum leo ut, luctus nisl."
+                teamColor= "#FF4747";
+            />
+        </div>
+      </li>
+      <li class="card">
+        <div class = "card-content">
+            <Lider
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                lider = "Lider de Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                rol= "6to semestre de ingeniería de sistemas";
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod elit vel euismod porttitor. Aliquam malesuada tortor in posuere semper. Nam sit amet leo luctus, dictum leo ut, luctus nisl."
+                teamColor= "#FF4747";
+            />
+        </div>
+      </li>  
+      <li class="card">
+        <div class = "card-content">
+            <Lider
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                lider = "Lider de Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                rol= "6to semestre de ingeniería de sistemas";
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod elit vel euismod porttitor. Aliquam malesuada tortor in posuere semper. Nam sit amet leo luctus, dictum leo ut, luctus nisl."
+                teamColor= "#FF4747";
+            />
+        </div>
+      </li>   
+    </ul>
+  </div>
+  <div class = "grid">
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        <div class = "member">
+            <Miembro
+                img= "src/images/memberPic.png";
+                name = "Pepe Perez";
+                team = "Web";
+                insta = "https://www.instagram.com/";
+                github = "https://www.github.com";
+                facebook = "https://www.facebook.com";
+                teamColor= "#FF4747";
+            />
+        </div>
+        
+        
+        
+        
+
+  </div>
+
+<style>
+    
+    .title{
+        text-align: center;   
+        font-size: 120%;
+        font-weight: 700;
+        font-style: normal;
+        font: 'Ubuntu';
+    }
+    .pink{
+        color: #D65C6F;
+    }
+
+    .default{
+        color: #D9D9D9;
+    }
+    .container {
+        max-width: 80%;
+        max-height: 30%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    .cards {
+        display: flex;
+        padding: 20px 0px;
+        list-style: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+        scroll-snap-align: start;
+        transition: all 0.2s;
+    }
+    .card .card-content {
+        margin: 20px;
+        max-width: 100%;
+    }
+
+    .cards::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .cards::-webkit-scrollbar-thumb,
+    .cards::-webkit-scrollbar-track {
+        border-radius: 92px;
+    }
+
+    .cards::-webkit-scrollbar-thumb {
+        background: #FFC100;
+    }
+    
+    .grid{
+        
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(200px, auto);
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+        .grid{
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(10px, auto);
+        }
+    }
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+        .grid{
+        margin: auto;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(10px, auto);
+        }
+    }
+    
+    @media only screen and (min-width: 901px){
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+        .grid{
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        grid-auto-rows: minmax(200px, auto);
+        }
+    }
+    @media only screen and (min-width: 1700px){
+        .title{
+        text-align: center;   
+        font-size: 300%;
+        }
+        .grid{
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 15px;
+        grid-auto-rows: minmax(200px, auto);
+        }
+    }
+</style>

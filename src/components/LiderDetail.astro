@@ -2,9 +2,23 @@
 import InstagramLogo from '@/icons/Instagram_Logo.astro'
 import GitHubLogo from '@/icons/GitHub_Logo.astro'
 import FacebookLogo from '@/icons/Facebook_Logo.astro'
+
+interface Props {
+	img: string;
+	name : string;
+  lider : string;
+  rol: string;
+  insta: string;
+  github: string;
+  facebook: string;
+  description: string;
+  teamColor: string;
+}
+
+const {img, name, lider, rol, insta, github, facebook, description, teamColor} = Astro.props;
 ---
   
-<style>
+<style define:vars={ {teamColor} }>
   @keyframes aparecerDesdeArriba {
 	  from {
 		  opacity: 0;
@@ -70,6 +84,22 @@ import FacebookLogo from '@/icons/Facebook_Logo.astro'
     font-weight: 400;
     line-height: normal;
   }
+  .insta {
+        cursor: pointer;
+    }
+    .git {
+        cursor: pointer;
+    }
+    .facebook {
+        cursor: pointer;
+    }
+    .teamImg{
+        width: 15px;
+        height: 15px;
+        background-color: var(--teamColor);
+        border-radius: 50%;
+        position: static;
+    }
   @media only screen and (min-width: 800px) {
     /* Estilos específicos para dispositivos con un ancho mínimo de 600px */
     .main {
@@ -79,40 +109,55 @@ import FacebookLogo from '@/icons/Facebook_Logo.astro'
       font-size: 18px; /* Ajustamos el tamaño del texto para dispositivos más grandes */
     }
     .nombrelimite, .nombre {
-      font-size: 52.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+      font-size: 40px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
     }
     .lider {
-      font-size: 32.627px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
+      font-size: 25px; /* Restauramos el tamaño del nombre para dispositivos más grandes */
     }
     .imagen {
-    max-width: 100%;
-    height: auto;
-    border-radius: 24px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;    
+      max-width: 40%;
+      height: auto;
+      border-radius: 24px;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;    
     }
+    .teamImg{
+        width: 20px;
+        height: 20px;
+        background-color: var(--teamColor);
+        border-radius: 50%;
+        position: static;
+    }
+    
   }
 </style>
 <div class="main">
-  <img class="imagen" src="https://img.freepik.com/foto-gratis/disparo-vertical-persona-manos-fondo-puesta-sol_181624-41845.jpg" >
+  <img class="imagen" src={img} >
   <div class="contenido">
     <h2>
       <span class="nombrelimite">&lt;/</span>
-      <span class="nombre">Felipe Rueda 🚀</span>
+      <span class="nombre">{name}</span>
       <span class="nombrelimite">/&gt;</span>
     </h2>
     <div style="display: flex; align-items: center; ">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="20" fill="#FFD02A"/>
-      </svg>
-      <p class="lider" style="margin-left: 10px;">Lider Scouting</p>
+      <!--<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="15" cy="15" r="15" fill="#FFD02A"/>
+      </svg> -->
+      <div class = "teamImg"> </div>
+      <p class="lider" style="margin-left: 10px;">{lider}</p>
     </div>
-    <h3 class = "rol"> 7mo Semestre Ing. Sistemas</h3>
-    <p class="contenido">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+    <h3 class = "rol"> {rol}</h3>
+    <p class="contenido">{description}</p>
     <div style="display: flex; align-items: center; ">
-      <InstagramLogo/>
-      <GitHubLogo/>
-      <FacebookLogo/>
+      <a href = {insta} class="insta" target="_blank">
+        <InstagramLogo/>
+      </a>
+      <a href = {github} class="git" target="_blank">
+        <GitHubLogo />
+      </a>
+      <a href = {facebook} class="facebook" target="_blank">
+        <FacebookLogo />
+      </a>
     </div>
   </div>
 </div>
